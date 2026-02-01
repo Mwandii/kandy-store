@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaShoppingBag, FaStore, FaCheckCircle, FaStar } from "react-icons/fa";
 
 function HeroSection({ setCurrentPage }) {
