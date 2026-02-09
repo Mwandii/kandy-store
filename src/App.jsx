@@ -1,4 +1,5 @@
 
+import CategoriesSection from "./components/Categories";
 import HeroSection from "./components/Hero";
 import Navbar from "./components/Navbar";
 
@@ -7,8 +8,8 @@ function App() {
     <>
     <Navbar/>
     <HeroSection/>
-    {/*<CategoriesSection/>
-    <FeaturedVendorsSection/>
+    <CategoriesSection/>
+    {/*<FeaturedVendorsSection/>
     <TrendingProductsSection/>
     <ShopByAgeSection/>
     <Footer/>*/}
