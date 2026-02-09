@@ -25,7 +25,7 @@ function CategoriesSection() {
       }
     };
   }, []);
-
+/*
   const categories = [
     {
       name: "Clothing",
@@ -64,7 +64,7 @@ function CategoriesSection() {
       itemCount: "720+ items"
     }
   ];
-
+*/
   return (
     <section
       ref={sectionRef}

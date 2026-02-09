@@ -1,3 +1,5 @@
+import { FaCheck } from "react-icons/fa";
+
 function HeroSection() {
 
  /* const stats = [
@@ -7,14 +9,22 @@ function HeroSection() {
   ];
 */
   return (
-    <section className="bg-linear-to-r from-amber-50 via-orange-50 to-amber-50">
-      <div>
-        <div>
-          <p>Premium Quality Guaranteed</p>
-          <h2>Everything Your Baby Needs</h2>
-          <p>Shop from trusted vendors.Best prices guaranteed.Fast and safe delivery done country wide</p>
+    <section className="bg-linear-to-r from-amber-50 via-yellow-50 to-orange-50 p-18">
+      <div className="flex gap-3 items-center bg-white rounded-4xl shadow-2xl py-16 px-10">
+        <div className="flex flex-col gap-3 px-8">
+          <div>
+          <p className="text-xs text-[#8B4513] font-bold bg-linear-to-r from-amber-100 via-yellow-100 to-orange-100 px-4 py-2 rounded-full inline-flex gap-2 items-center"><FaCheck className="bg-[#FF6B35] rounded-full p-1 w-4 h-4 text-white"/> Premium Quality Guaranteed</p>
+          </div>
+          <div className="">
+          <h2 className="text-6xl leading-[1.3] font-bold text-gray-900">Everything Your <span className="bg-linear-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text text-transparent">Baby</span> Needs</h2>
+          </div>
+          <div className="">
+          <p className="text-gray-700 text-lg leading-relaxed">Shop from trusted vendors<span className="mx-1 font-bold">·</span>Best prices guaranteed<span className="mx-1 font-bold">·</span>Fast and safe delivery done country wide</p>
+          </div>
+          <div>
           <button>Shop Now</button>
           <button>Browse Vendors</button>
+          </div>
           <hr/>
           <div>
             <div>

@@ -1,41 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { FaStar, FaHeart, FaShoppingCart, FaFire, FaArrowRight, FaBaby, FaChild } from "react-icons/fa";
 
-// ============================================
-// TRENDING PRODUCTS SECTION
-// ============================================
-function TrendingProductsSection({ setCurrentPage }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const [wishlist, setWishlist] = useState([]);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const toggleWishlist = (id) => {
-    setWishlist(prev => 
-      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
-    );
-  };
-
+/*
   const products = [
     {
       id: 1,
@@ -93,7 +57,7 @@ function TrendingProductsSection({ setCurrentPage }) {
       badge: "Popular"
     }
   ];
-
+*/
   return (
     <section
       ref={sectionRef}

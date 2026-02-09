@@ -25,7 +25,7 @@ function ShopByAgeSection() {
       }
     };
   }, []);
-
+/*
   const ages = [
     {
       label: "0–6 Months",
@@ -60,7 +60,7 @@ function ShopByAgeSection() {
       productCount: "2,100+"
     }
   ];
-
+*/
   return (
     <section
       ref={sectionRef}

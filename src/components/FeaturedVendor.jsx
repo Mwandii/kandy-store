@@ -25,7 +25,7 @@ function FeaturedVendorsSection({ setCurrentPage }) {
       }
     };
   }, []);
-
+/*
   const vendors = [
     {
       id: 1,
@@ -72,7 +72,7 @@ function FeaturedVendorsSection({ setCurrentPage }) {
       bgGradient: "from-amber-500 to-orange-500"
     }
   ];
-
+*/
   return (
     <section
       ref={sectionRef}
