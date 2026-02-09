@@ -43,9 +43,9 @@ function CategoriesSection() {
 */
   return (
       <section>
-      <div className="flex">
-      <h4>EXPLORE COLLECTIONS</h4>
-      <h1>Shop By Category</h1>
+      <div className="flex flex-col gap-4 items-center text-center">
+      <h5>EXPLORE COLLECTIONS</h5>
+      <h1 className="text-3xl">Shop By Category</h1>
       <p>Discover premium baby products curated by category for your convinience</p>
       </div>
       </section>

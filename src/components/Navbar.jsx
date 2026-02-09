@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <nav className="shadow-lg">
+    <nav className="shadow-xl sticky">
       <div className="flex justify-between px-5 py-2 bg-linear-to-r from-amber-600 via-amber-700 to-orange-600 text-white text-sm">
         <p>For all your baby essentials. Fast and reliable delivery guaranteed</p>
         <div className="flex gap-4 hover:cursor-pointer">
