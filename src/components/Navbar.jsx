@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <nav className="sticky top-0 z-50">
+    <nav className="z-50 shadow-lg">
       <div className="flex justify-between px-5 py-2 bg-linear-to-r from-amber-600 via-amber-700 to-orange-600 text-white text-sm">
         <p>For all your baby essentials. Fast and reliable delivery guaranteed</p>
         <div className="flex gap-4 hover:cursor-pointer">
@@ -17,8 +17,8 @@ function Navbar() {
       </div>
     </div>
     <hr className="w-49/50 mx-auto border-gray-200"/>
-    <div>
-      <ul className="flex items-center gap-5 px-5 py-2 text-gray-700 text-sm font-bold bg-white shadow-lg">
+    <div className="bg-white">
+      <ul className="flex items-center gap-5 px-5 py-2 text-gray-700 text-sm font-bold">
         <li className="hover:cursor-pointer"><a>All Categories</a></li>
         <li className="hover:cursor-pointer"><a>New Arrivals</a></li>
         <li className="hover:cursor-pointer"><a>Best Deals</a></li>
