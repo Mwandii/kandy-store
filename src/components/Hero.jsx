@@ -9,8 +9,8 @@ function HeroSection() {
   ];
 */
   return (
-    <section className="bg-linear-to-r from-amber-50 via-yellow-50 to-orange-50 p-18">
-      <div className="flex gap-10 items-center justify-between bg-white rounded-4xl shadow-2xl py-16 px-8">
+    <section className="bg-linear-to-r from-amber-50 via-yellow-50 to-orange-50 p-14">
+      <div className="flex gap-10 items-center justify-between bg-white rounded-4xl shadow-2xl py-8 px-8">
         <div className="flex flex-col gap-3 px-8">
           <div>
             <p className="text-xs text-[#8B4513] font-bold bg-linear-to-r from-amber-100 via-yellow-100 to-orange-100 px-4 py-2 rounded-full inline-flex gap-2 items-center">
@@ -64,7 +64,7 @@ function HeroSection() {
         <div className="px-8 w-200">
           <img
             className="rounded-2xl w-full"
-            src="https://images.unsplash.com/photo-1709380830070-2c0da9348126?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGJhYnklMjBwbGF5aW5nJTIwdG95c3xlbnwwfHwwfHx8MA%3D%3D"
+            src="https://images.unsplash.com/photo-1501686637-b7aa9c48a882?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmFieSUyMHBsYXlpbmd8ZW58MHx8MHx8fDA%3D"
           />
         </div>
       </div>
