@@ -37,50 +37,60 @@
     }
   ];
 
-  const vendors = [
-    {
-      id: 1,
-      name: "Little Angels Store",
-      rating: 4.8,
-      reviews: 2340,
-      products: 450,
-      verified: true,
-      image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=300&fit=crop",
-      specialty: "Organic Baby Clothing",
-      bgGradient: "from-pink-500 to-rose-500"
-    },
-    {
-      id: 2,
-      name: "Baby Bliss Shop",
-      rating: 4.7,
-      reviews: 1890,
-      products: 380,
-      verified: true,
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop",
-      specialty: "Premium Toys & Gear",
-      bgGradient: "from-blue-500 to-cyan-500"
-    },
-    {
-      id: 3,
-      name: "Tiny Treasures",
-      rating: 4.9,
-      reviews: 3120,
-      products: 520,
-      verified: true,
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-      specialty: "Nursery Essentials",
-      bgGradient: "from-purple-500 to-indigo-500"
-    },
-    {
-      id: 4,
-      name: "Sweet Dreams Baby",
-      rating: 4.6,
-      reviews: 1560,
-      products: 290,
-      verified: true,
-      image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=400&h=300&fit=crop",
-      specialty: "Sleep & Comfort",
-      bgGradient: "from-amber-500 to-orange-500"
-    }
-  ];
-  
+  export const mockVendors = [
+  {
+    id: 1,
+    name: "Little Angels Store",
+    category: "Organic Baby Clothing",
+    rating: 4.8,
+    reviewCount: 2340,
+    products: 450,
+    customers: 234000,
+    coverGradient: "linear-gradient(135deg, #ec4899 0%, #f97316 100%)",
+    logoPlaceholder: "👶",
+  },
+  {
+    id: 2,
+    name: "Baby Bliss Shop",
+    category: "Premium Toys & Gear",
+    rating: 4.7,
+    reviewCount: 1890,
+    products: 380,
+    customers: 189000,
+    coverGradient: "linear-gradient(135deg, #6366f1 0%, #06b6d4 100%)",
+    logoPlaceholder: "🧸",
+  },
+  {
+    id: 3,
+    name: "Tiny Treasures",
+    category: "Nursery Essentials",
+    rating: 4.9,
+    reviewCount: 3120,
+    products: 520,
+    customers: 312000,
+    coverGradient: "linear-gradient(135deg, #a855f7 0%, #ec4899 100%)",
+    logoPlaceholder: "🌟",
+  },
+  {
+    id: 4,
+    name: "Snuggle Nest",
+    category: "Bedding & Comfort",
+    rating: 4.6,
+    reviewCount: 1540,
+    products: 210,
+    customers: 97000,
+    coverGradient: "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)",
+    logoPlaceholder: "🛏️",
+  },
+  {
+    id: 5,
+    name: "GrowBig Kids",
+    category: "Educational Toys",
+    rating: 4.3,
+    reviewCount: 870,
+    products: 160,
+    customers: 54000,
+    coverGradient: "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)",
+    logoPlaceholder: "📚",
+  },
+];

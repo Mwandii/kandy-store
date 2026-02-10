@@ -11,9 +11,9 @@ function App() {
     <HeroSection/>
     <CategoriesSection/>
     <FeaturedVendorsSection/>
-    {/*<TrendingProductsSection/>
+    {/* <TrendingProductsSection/>
     <ShopByAgeSection/>
-    <Footer/>*/}
+    <Footer/> */}
     </>
   )
 }

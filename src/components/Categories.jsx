@@ -164,7 +164,7 @@ function CategoriesSection() {
               display: "flex",
               gap: `${CARD_GAP}px`,
               willChange: "transform",
-              padding: "0 20px"
+              padding: "10px 20px",
             }}
           >
             {renderList.map((cat, i) => {
@@ -216,8 +216,8 @@ function CategoriesSection() {
           ))}
         </div>
       )}
-      <div className="flex items-center justify-center p-6">
-        <button className="flex items-center gap-3 px-6 py-4 shadow-lg text-white bg-linear-to-r from-orange-500 to-orange-600 rounded-full m-4 hover:cursor-pointer">
+      <div className="flex items-center justify-center">
+        <button className="flex items-center gap-3 px-6 py-4 shadow-lg text-white bg-linear-to-r from-orange-500 to-orange-600 rounded-full hover:cursor-pointer">
               Browse All Categories<FaArrowRight/>
             </button>
         </div>
