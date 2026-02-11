@@ -46,8 +46,9 @@
     reviewCount: 2340,
     products: 450,
     customers: 234000,
-    coverGradient: "linear-gradient(135deg, #ec4899 0%, #f97316 100%)",
-    logoPlaceholder: "👶",
+    coverImage:
+      "https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=1200&auto=format&fit=crop",
+    logoIcon: "https://images.unsplash.com/photo-1600563093202-337471bde37e?w=500&auto=format&fit=crop",
   },
   {
     id: 2,
@@ -57,8 +58,9 @@
     reviewCount: 1890,
     products: 380,
     customers: 189000,
-    coverGradient: "linear-gradient(135deg, #6366f1 0%, #06b6d4 100%)",
-    logoPlaceholder: "🧸",
+    coverImage:
+      "https://images.unsplash.com/photo-1587654780291-39c9404d746b?q=80&w=1200&auto=format&fit=crop",
+    logoIcon: "https://images.unsplash.com/photo-1684287861055-1d1da39c156b?w=500&auto=format&fit=crop",
   },
   {
     id: 3,
@@ -68,8 +70,9 @@
     reviewCount: 3120,
     products: 520,
     customers: 312000,
-    coverGradient: "linear-gradient(135deg, #a855f7 0%, #ec4899 100%)",
-    logoPlaceholder: "🌟",
+    coverImage:
+      "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=1200&auto=format&fit=crop",
+    logoIcon: "https://images.unsplash.com/photo-1634973357973-f2ed2657db3c?w=500&auto=format&fit=crop",
   },
   {
     id: 4,
@@ -79,8 +82,9 @@
     reviewCount: 1540,
     products: 210,
     customers: 97000,
-    coverGradient: "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)",
-    logoPlaceholder: "🛏️",
+    coverImage:
+      "https://images.unsplash.com/photo-1586105251261-72a756497a11?q=80&w=1200&auto=format&fit=crop",
+    logoIcon: "https://images.unsplash.com/photo-1571389244484-49a5cd4abc5d?w=500&auto=format&fit=crop",
   },
   {
     id: 5,
@@ -90,7 +94,8 @@
     reviewCount: 870,
     products: 160,
     customers: 54000,
-    coverGradient: "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)",
-    logoPlaceholder: "📚",
+    coverImage:
+      "https://images.unsplash.com/photo-1606312619070-d48b4c652a52?q=80&w=1200&auto=format&fit=crop",
+    logoIcon: "https://images.unsplash.com/photo-1633533452206-8ab246b00e30?w=500&auto=format&fit=crop",
   },
 ];

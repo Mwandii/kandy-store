@@ -42,8 +42,8 @@ export default function VendorCard({vendor}) {
     reviewCount,
     products,
     customers,
-    coverGradient,
-    logoPlaceholder,
+    coverImage,
+    logoIcon,
   } = vendor;
 
   return (
@@ -51,8 +51,8 @@ export default function VendorCard({vendor}) {
 
       {/* ── Cover Banner ── */}
       <div
-        className="relative h-44 shrink-0"
-        style={{ background: coverGradient }}
+        className="relative h-44 bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${coverImage})`, backgroundSize: "contain", }}
       >
         {/* Verified badge */}
         <div className="absolute top-3.5 right-3.5 bg-white rounded-full px-3 py-1 flex items-center gap-1.5 text-[13px] font-semibold text-gray-900 shadow-md">
@@ -62,7 +62,11 @@ export default function VendorCard({vendor}) {
 
         {/* Logo notch */}
         <div className="absolute -bottom-8 left-5 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-2xl">
-          {logoPlaceholder}
+          <img
+    src={logoIcon}
+    alt={`${name} logo`}
+    className="w-10 h-10 object-contain rounded-2xl"
+  />
         </div>
       </div>
 

@@ -15,7 +15,7 @@ function FeaturedVendors() {
       try {
         const data = mockVendors;
         if (isMounted) {
-          // Pick the 4 vendors with the highest ratings
+          await new Promise(r => setTimeout(r, 1500));
           const top4 = [...data]
             .sort((a, b) => b.rating - a.rating)
             .slice(0, 4);
