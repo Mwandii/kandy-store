@@ -32,7 +32,7 @@ function FeaturedVendors() {
   }, []);
 
   return (
-    <section className="w-full max-w-6xl mx-auto px-5 mt-12 py-10 pb-16">
+    <section className="w-full max-w-6xl mx-auto px-5 mt-12 py-10">
 
       {/* ── Section Heading ── */}
       <div className="flex justify-between items-center">
@@ -93,6 +93,7 @@ function FeaturedVendors() {
           ))}
         </div>
       )}
+
 
       {/* ── Keyframes (only fadeSlideUp — not available in Tailwind base) ── */}
       <style>{`

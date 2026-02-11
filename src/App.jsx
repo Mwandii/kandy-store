@@ -1,3 +1,4 @@
+import BecomeVendor from "./components/BecomeVendor";
 import CategoriesSection from "./components/Categories";
 import CategoriesCard from "./components/CategoriesCard";
 import FeaturedVendorsSection from "./components/FeaturedVendor";
@@ -11,6 +12,7 @@ function App() {
     <HeroSection/>
     <CategoriesSection/>
     <FeaturedVendorsSection/>
+    <BecomeVendor/>
     {/* <TrendingProductsSection/>
     <ShopByAgeSection/>
     <Footer/> */}
