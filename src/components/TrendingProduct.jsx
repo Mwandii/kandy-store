@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaFire } from "react-icons/fa";
+import { FaArrowRight, FaFire } from "react-icons/fa";
 import ProductCard from "./TrendingCard";
 import { trendingProductsMock } from "../data/data";
 
@@ -101,6 +101,10 @@ function TrendingProducts() {
           ))}
         </div>
       )}
+
+      <div className="flex justify-center pt-10">
+        <button className="flex items-center gap-3 px-6 py-4 shadow-lg font-semibold text-white bg-linear-to-r from-orange-500 to-orange-600 rounded-full hover:cursor-pointer">View all products<FaArrowRight/></button>
+      </div>
 
       {/* ── Keyframes ── */}
       <style>{`

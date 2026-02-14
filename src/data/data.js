@@ -172,3 +172,39 @@ export const trendingProductsMock = [
     ]
   }
 ];
+
+// Mock data for shop by age group
+export const ageGroupsMock = [
+  {
+    id: 1,
+    ageRange: "0–6 Months",
+    subtitle: "Newborn essentials",
+    itemCount: "1,200+ items",
+    gradient: "linear-gradient(135deg, #ec4899 0%, #db2777 100%)",
+    image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&h=600&fit=crop",
+  },
+  {
+    id: 2,
+    ageRange: "6–12 Months",
+    subtitle: "Growing baby needs",
+    itemCount: "980+ items",
+    gradient: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)",
+    image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&h=600&fit=crop",
+  },
+  {
+    id: 3,
+    ageRange: "1–2 Years",
+    subtitle: "Toddler favorites",
+    itemCount: "1,450+ items",
+    gradient: "linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)",
+    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=600&fit=crop",
+  },
+  {
+    id: 4,
+    ageRange: "2+ Years",
+    subtitle: "Active kids items",
+    itemCount: "2,100+ items",
+    gradient: "linear-gradient(135deg, #f59e0b 0%, #f97316 100%)",
+    image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&h=600&fit=crop",
+  },
+];
