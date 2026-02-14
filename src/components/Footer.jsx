@@ -52,9 +52,6 @@ export default function Footer() {
               <FooterLink text="Browse Products" />
               <FooterLink text="Track Order" />
               <FooterLink text="Help Center" />
-              <FooterLink text="Returns & Refunds" />
-              <FooterLink text="Shipping Info" />
-              <FooterLink text="Gift Cards" />
             </ul>
           </div>
 
@@ -64,10 +61,6 @@ export default function Footer() {
             <ul className="space-y-2 md:space-y-2.5">
               <FooterLink text="Start Selling" />
               <FooterLink text="Vendor Dashboard" />
-              <FooterLink text="Pricing Plans" />
-              <FooterLink text="Seller Resources" />
-              <FooterLink text="Success Stories" />
-              <FooterLink text="Partner Program" />
             </ul>
           </div>
 
@@ -106,25 +99,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Payment Methods Bar ── */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 md:py-6">
-          <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-3 md:gap-4">
-            
-            <span className="text-xs md:text-sm">We Accept:</span>
-            
-            {/* Payment badges */}
-            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
-              <PaymentBadge text="Visa" />
-              <PaymentBadge text="Mastercard" />
-              <PaymentBadge text="PayPal" />
-              <PaymentBadge text="Apple Pay" />
-              <PaymentBadge text="Google Pay" />
-            </div>
-
-          </div>
-        </div>
-      </div>
+      
 
       {/* ── Bottom Bar ── */}
       <div className="border-t border-gray-800">

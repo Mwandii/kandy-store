@@ -19,8 +19,8 @@
     },
     {
       id: "4",
-      name: "Nursery",
-      image: "https://images.unsplash.com/photo-1584646098378-0874589d76b1?w=400&h=400&fit=crop",
+      name: "Bath Time",
+      image: "https://images.unsplash.com/photo-1621483942660-48b49739ac3b?q=80&w=850&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       itemCount: "1,230+ items"
     },
     {
@@ -47,7 +47,7 @@
     products: 450,
     customers: 234000,
     coverImage:
-      "https://images.unsplash.com/photo-1604014237800-1c9102c219da?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1766918780914-e19d9de76d85?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFieSUyMHN0b3JlfGVufDB8fDB8fHww",
     logoIcon: "https://images.unsplash.com/photo-1600563093202-337471bde37e?w=500&auto=format&fit=crop",
   },
   {
@@ -132,7 +132,7 @@ export const trendingProductsMock = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=500&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1635258559918-ed56f88004de?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fGJhYnklMjBib3R0bGVzfGVufDB8fDB8fHww",
     name: "Complete Feeding Set",
     brand: "Baby Bliss",
     rating: 4.6,
@@ -159,7 +159,7 @@ export const trendingProductsMock = [
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1737065183310-aef762bd011c?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     name: "Baby Bath Towel Set",
     brand: "Little Angels",
     rating: 4.9,

@@ -42,22 +42,22 @@ function BecomeVendor() {
           <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-xs md:text-sm text-gray-500 mt-2">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span>No setup fees</span>
+              <span>Easy onboarding</span>
             </div>
             <span className="hidden sm:inline text-gray-300">•</span>
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span>Free support</span>
+              <span>Trusted by parents</span>
             </div>
             <span className="hidden sm:inline text-gray-300">•</span>
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span>Get started in minutes</span>
+              <span>Reach more customers</span>
             </div>
           </div>
         </div>
       </div>
-      
+
     </section>
   );
 }
