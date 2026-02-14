@@ -57,21 +57,7 @@ function BecomeVendor() {
           </div>
         </div>
       </div>
-
-      {/* Keyframes for subtle bounce */}
-      <style>{`
-        @keyframes bounce-slow {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-8px);
-          }
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 2.5s ease-in-out infinite;
-        }
-      `}</style>
+      
     </section>
   );
 }

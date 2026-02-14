@@ -50,8 +50,7 @@ function Navbar() {
       
       {/* ── Top Banner (hidden on mobile) ── */}
       <div className="hidden md:flex justify-between px-5 py-2 bg-linear-to-r from-amber-600 via-amber-700 to-orange-600 text-white text-sm">
-        <p className="flex items-center gap-2">
-          <span className="hidden lg:inline">🚚</span>
+        <p className="flex items-center">
           For all your baby essentials. Fast and reliable delivery guaranteed
         </p>
         <div className="flex gap-4 font-medium">

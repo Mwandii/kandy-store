@@ -81,22 +81,12 @@ function HeroSection() {
             {/* Main image */}
             <img
               className="relative rounded-2xl md:rounded-3xl w-full shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-[1.02]"
-              src="https://images.unsplash.com/photo-1501686637-b7aa9c48a882?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmFieSUyMHBsYXlpbmd8ZW58MHx8MHx8fDA%3D"
+              src="https://images.unsplash.com/photo-1709380830070-2c0da9348126?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmFieSUyMHBsYXlpbmd8ZW58MHx8MHx8fDA%3D"
               alt="Happy baby playing"
             />
 
             {/* Floating badge overlay */}
-            <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-white rounded-2xl shadow-2xl p-3 md:p-4 border-4 border-orange-100 animate-float">
-              <div className="flex items-center gap-2 md:gap-3">
-                <div className="bg-linear-to-br from-orange-500 to-orange-600 rounded-full p-2 md:p-3">
-                  <FaStar className="text-white text-base md:text-xl" />
-                </div>
-                <div>
-                  <p className="text-xl md:text-2xl font-bold text-gray-900">4.9</p>
-                  <p className="text-[10px] md:text-xs text-gray-500 whitespace-nowrap">Rated Excellent</p>
-                </div>
-              </div>
-            </div>
+        
           </div>
         </div>
 
