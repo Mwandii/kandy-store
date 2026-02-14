@@ -6,6 +6,7 @@ import {
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaEnvelope,
+  FaTiktok,
 } from "react-icons/fa";
 
 export default function Footer() {
@@ -38,9 +39,8 @@ export default function Footer() {
               <h3 className="text-white font-bold text-sm mb-3">Follow Us</h3>
               <div className="flex gap-3">
                 <SocialIcon icon={<FaFacebookF />} href="#" />
-                <SocialIcon icon={<FaTwitter />} href="#" />
+                <SocialIcon icon={<FaTiktok/>}href="#" />
                 <SocialIcon icon={<FaInstagram />} href="#" />
-                <SocialIcon icon={<FaLinkedinIn />} href="#" />
               </div>
             </div>
           </div>
