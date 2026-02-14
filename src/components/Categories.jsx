@@ -1,10 +1,8 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import fetchCategories from "../api/api";
 import CategoriesCard from "./CategoriesCard";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const VISIBLE_COUNT = 4;
-const CARD_GAP = 16;
 const TRANSITION_MS = 480;
 
 function CategoriesSection() {
@@ -12,10 +10,28 @@ function CategoriesSection() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // ── Responsive visible count ────────────────────────────────────────────────
+  const [visibleCount, setVisibleCount] = useState(4);
+  
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      if (window.innerWidth < 640) setVisibleCount(1);       // mobile
+      else if (window.innerWidth < 768) setVisibleCount(2);  // tablet
+      else if (window.innerWidth < 1024) setVisibleCount(3); // small desktop
+      else setVisibleCount(4);                                // large desktop
+    };
+    
+    updateVisibleCount();
+    window.addEventListener('resize', updateVisibleCount);
+    return () => window.removeEventListener('resize', updateVisibleCount);
+  }, []);
+
+  const CARD_GAP = 16;
+
   // ── carousel refs ────────────────────────────────────────────────────────────
   const trackRef = useRef(null);
   const isTransitioning = useRef(false);
-  const logicalIndex = useRef(0); // can go negative or beyond length — wraps mod len
+  const logicalIndex = useRef(0);
 
   useEffect(() => {
     let isMounted = true;
@@ -30,14 +46,18 @@ function CategoriesSection() {
       }
     };
     loadCategories();
-  });
 
-  // ── build a render list: 1 hidden clone left + VISIBLE_COUNT real + 1 hidden clone right ──
-  const buildRenderList = useCallback((data, idx) => {
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  // ── build render list ────────────────────────────────────────────────────────
+  const buildRenderList = useCallback((data, idx, count) => {
     if (!data.length) return [];
     const len = data.length;
     const items = [];
-    for (let i = -1; i <= VISIBLE_COUNT; i++) {
+    for (let i = -1; i <= count; i++) {
       const realIdx = (((idx + i) % len) + len) % len;
       items.push({ ...data[realIdx], _slot: i + 1 });
     }
@@ -45,32 +65,30 @@ function CategoriesSection() {
   }, []);
 
   const [renderList, setRenderList] = useState([]);
-  // Dot indicator needs a reactive logical index snapshot
   const [dotIndex, setDotIndex] = useState(0);
 
-  // ── initialise render list once categories arrive ──────────────────────────
+  // ── initialise render list ───────────────────────────────────────────────────
   useEffect(() => {
     if (!categories.length) return;
-    setRenderList(buildRenderList(categories, logicalIndex.current));
-  }, [categories, buildRenderList]);
+    setRenderList(buildRenderList(categories, logicalIndex.current, visibleCount));
+  }, [categories, buildRenderList, visibleCount]);
 
-  // ── after every render-list rebuild, silently reset track to neutral ────────
+  // ── reset track position ─────────────────────────────────────────────────────
   const resetTrack = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
-    const cardW =
-      (track.offsetWidth - CARD_GAP * (VISIBLE_COUNT - 1)) / VISIBLE_COUNT;
+    const cardW = (track.offsetWidth - CARD_GAP * (visibleCount - 1)) / visibleCount;
     const slotW = cardW + CARD_GAP;
     track.style.transition = "none";
     track.style.transform = `translateX(-${slotW}px)`;
-  }, []);
+  }, [visibleCount]);
 
   useEffect(() => {
     if (!renderList.length) return;
     requestAnimationFrame(resetTrack);
   }, [renderList, resetTrack]);
 
-  // ── scroll ──────────────────────────────────────────────────────────────────
+  // ── scroll ───────────────────────────────────────────────────────────────────
   const scroll = useCallback(
     (dir) => {
       if (isTransitioning.current || !categories.length) return;
@@ -82,8 +100,7 @@ function CategoriesSection() {
         return;
       }
 
-      const cardW =
-        (track.offsetWidth - CARD_GAP * (VISIBLE_COUNT - 1)) / VISIBLE_COUNT;
+      const cardW = (track.offsetWidth - CARD_GAP * (visibleCount - 1)) / visibleCount;
       const slotW = cardW + CARD_GAP;
       const target = dir === "right" ? slotW * 2 : 0;
 
@@ -96,136 +113,149 @@ function CategoriesSection() {
         const len = categories.length;
         const wrapped = ((logicalIndex.current % len) + len) % len;
         setDotIndex(wrapped);
-        setRenderList(buildRenderList(categories, logicalIndex.current));
+        setRenderList(buildRenderList(categories, logicalIndex.current, visibleCount));
         isTransitioning.current = false;
       }, TRANSITION_MS + 10);
     },
-    [categories, buildRenderList]
+    [categories, buildRenderList, visibleCount]
   );
 
-  // ── shared card width style ──────────────────────────────────────────────────
+  // ── card style ───────────────────────────────────────────────────────────────
   const cardStyle = {
-    flex: `0 0 calc(${100 / VISIBLE_COUNT}% - ${
-      (CARD_GAP * (VISIBLE_COUNT - 1)) / VISIBLE_COUNT
-    }px)`,
+    flex: `0 0 calc(${100 / visibleCount}% - ${(CARD_GAP * (visibleCount - 1)) / visibleCount}px)`,
   };
 
+  if (loading) {
+    return (
+      <section className="py-12 px-4 max-w-7xl mx-auto">
+        <div className="text-center mb-12 animate-pulse">
+          <div className="h-4 w-32 bg-gray-200 rounded mx-auto mb-4" />
+          <div className="h-10 w-64 bg-gray-200 rounded mx-auto mb-4" />
+          <div className="h-4 w-96 bg-gray-200 rounded mx-auto" />
+        </div>
+        <div className="flex justify-center gap-4 overflow-hidden">
+          {[...Array(visibleCount)].map((_, i) => (
+            <div key={i} className="w-48 h-64 bg-gray-100 rounded-2xl animate-pulse" />
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <>
-      {/* ── Heading Section ── */}
-      <section className="my-6 py-6">
-        <div className="flex flex-col gap-4 items-center text-center">
-          <p className="text-orange-500 text-sm uppercase">
+    <section className="py-12 px-4 bg-linear-to-b from-white via-orange-50/30 to-white">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* ── Heading Section ── */}
+        <div className="flex flex-col gap-3 md:gap-4 items-center text-center mb-10 md:mb-12 animate-fadeIn">
+          <p className="text-orange-500 text-xs md:text-sm uppercase font-semibold tracking-wider">
             Explore Collection
           </p>
-          <h1 className="text-5xl font-bold text-gray-900">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 px-4">
             Shop By{" "}
             <span className="bg-linear-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
               Category
             </span>
-          </h1>
-          <p className="text-gray-500">
-            Discover premium baby products curated by category for your
-            convinience
+          </h2>
+          <p className="text-gray-600 text-sm md:text-base max-w-2xl px-4">
+            Discover premium baby products curated by category for your convenience
           </p>
         </div>
-      </section>
 
-      {/* ── Carousel ── */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "20px auto",
-          padding: "0 0px",
-          width: "100%",
-          maxWidth: "1152px",
-          gap: "12px",
-        }}
-      >
-        {/* Left Arrow */}
-        <ArrowBtn dir="left" onClick={() => scroll("left")} />
+        {/* ── Carousel Container ── */}
+        <div className="relative">
+          <div className="flex items-center justify-center gap-3 md:gap-4">
+            
+            {/* Left Arrow - Hidden on mobile for cleaner UX */}
+            <div className="hidden sm:block">
+              <ArrowBtn dir="left" onClick={() => scroll("left")} />
+            </div>
 
-        {/* Viewport — clips the sliding track */}
-        <div
-          style={{
-            flex: 1,
-            overflow: "hidden",
-            position: "relative",
-            padding: "20x 40px",
-            margin: "10px 0",
-          }}
-        >
-          {/* Sliding track */}
-          <div
-            ref={trackRef}
-            style={{
-              display: "flex",
-              gap: `${CARD_GAP}px`,
-              willChange: "transform",
-              padding: "10px 20px",
-            }}
-          >
-            {renderList.map((cat, i) => {
-              const isClone = i === 0 || i === renderList.length - 1;
-              return (
-                <div
-                  key={`${cat.id ?? "c"}-${i}`}
-                  style={{
-                    ...cardStyle,
-                    opacity: isClone ? 0.35 : 1,
-                    transform: isClone ? "scale(0.9)" : "scale(1)",
-                    transition: "opacity 0.3s ease, transform 0.3s ease",
-                    pointerEvents: isClone ? "none" : "auto",
-                  }}
-                >
-                  <CategoriesCard key={cat.id} {...cat}/>
-                </div>
-              );
-            })}
+            {/* Viewport */}
+            <div className="flex-1 overflow-hidden relative max-w-6xl">
+              {/* Sliding track */}
+              <div
+                ref={trackRef}
+                className="flex"
+                style={{
+                  gap: `${CARD_GAP}px`,
+                  willChange: "transform",
+                  padding: "20px 0",
+                }}
+              >
+                {renderList.map((cat, i) => {
+                  const isClone = i === 0 || i === renderList.length - 1;
+                  return (
+                    <div
+                      key={`${cat.id ?? "c"}-${i}`}
+                      style={{
+                        ...cardStyle,
+                        opacity: isClone ? 0.35 : 1,
+                        transform: isClone ? "scale(0.92)" : "scale(1)",
+                        transition: "opacity 0.3s ease, transform 0.3s ease",
+                        pointerEvents: isClone ? "none" : "auto",
+                      }}
+                    >
+                      <CategoriesCard {...cat} />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Right Arrow - Hidden on mobile */}
+            <div className="hidden sm:block">
+              <ArrowBtn dir="right" onClick={() => scroll("right")} />
+            </div>
+          </div>
+
+          {/* Mobile: Arrows at bottom */}
+          <div className="flex sm:hidden justify-center gap-4 mt-6">
+            <ArrowBtn dir="left" onClick={() => scroll("left")} />
+            <ArrowBtn dir="right" onClick={() => scroll("right")} />
           </div>
         </div>
 
-        {/* Right Arrow */}
-        <ArrowBtn dir="right" onClick={() => scroll("right")} />
+        {/* Dot indicators */}
+        {categories.length > 1 && (
+          <div className="flex justify-center gap-2 mt-8 mb-6">
+            {categories.map((_, i) => (
+              <span
+                key={i}
+                className={`inline-block h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  i === dotIndex
+                    ? "w-8 bg-orange-500"
+                    : "w-2 bg-orange-200 hover:bg-orange-300"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Browse All CTA */}
+        <div className="flex justify-center mt-8">
+          <button className="group flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 shadow-lg hover:shadow-xl text-white bg-linear-to-r from-orange-500 to-orange-600 rounded-full transition-all duration-300 hover:scale-105 font-semibold text-sm md:text-base">
+            Browse All Categories
+            <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
+          </button>
+        </div>
       </div>
 
-      {/* Dot indicators */}
-      {categories.length > 1 && (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "8px",
-            marginBottom: "28px",
-          }}
-        >
-          {categories.map((_, i) => (
-            <span
-              key={i}
-              style={{
-                display: "inline-block",
-                width: i === dotIndex ? "24px" : "8px",
-                height: "8px",
-                borderRadius: "9999px",
-                background: i === dotIndex ? "#f97316" : "#fed7aa",
-                transition: "all 0.3s ease",
-              }}
-            />
-          ))}
-        </div>
-      )}
-      <div className="flex items-center justify-center">
-        <button className="flex items-center gap-3 px-6 py-4 shadow-lg text-white bg-linear-to-r from-orange-500 to-orange-600 rounded-full hover:cursor-pointer">
-              Browse All Categories<FaArrowRight/>
-            </button>
-        </div>
-    </>
+      {/* ── Animations ── */}
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.6s ease-out;
+        }
+      `}</style>
+    </section>
   );
 }
 
-/* ── Arrow button ─────────────────────────────────────────────────────────────── */
+/* ── Arrow Button ────────────────────────────────────────────────────────────── */
 function ArrowBtn({ dir, onClick }) {
   const [hovered, setHovered] = useState(false);
   return (
@@ -234,42 +264,22 @@ function ArrowBtn({ dir, onClick }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       aria-label={dir === "left" ? "Previous" : "Next"}
-      style={{
-        flexShrink: 0,
-        width: "44px",
-        height: "44px",
-        borderRadius: "50%",
-        border: "2px solid #f97316",
-        background: hovered ? "#f97316" : "#fff7ed",
-        color: hovered ? "#fff" : "#f97316",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        cursor: "pointer",
-        boxShadow: hovered
-          ? "0 4px 18px rgba(249,115,22,0.35)"
-          : "0 2px 10px rgba(249,115,22,0.15)",
-        transform: hovered ? "scale(1.1)" : "scale(1)",
-        transition: "all 0.2s ease",
-        outline: "none",
-      }}
+      className={`
+        shrink-0 w-10 h-10 md:w-12 md:h-12
+        rounded-full border-2 border-orange-500
+        flex items-center justify-center
+        transition-all duration-200
+        ${hovered 
+          ? "bg-orange-500 text-white shadow-lg scale-110" 
+          : "bg-orange-50 text-orange-500 shadow-md"
+        }
+      `}
     >
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        {dir === "left" ? (
-          <polyline points="15 18 9 12 15 6" />
-        ) : (
-          <polyline points="9 18 15 12 9 6" />
-        )}
-      </svg>
+      {dir === "left" ? (
+        <FaChevronLeft className="text-sm md:text-base" />
+      ) : (
+        <FaChevronRight className="text-sm md:text-base" />
+      )}
     </button>
   );
 }
