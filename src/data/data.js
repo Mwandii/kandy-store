@@ -99,3 +99,76 @@
     logoIcon: "https://images.unsplash.com/photo-1633533452206-8ab246b00e30?w=500&auto=format&fit=crop",
   },
 ];
+
+
+// Mock data for trending products
+export const trendingProductsMock = [
+  {
+    id: 1,
+    image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
+    name: "Organic Cotton Onesie",
+    brand: "Little Angels",
+    rating: 4.5,
+    reviewCount: 234,
+    price: 24.99,
+    originalPrice: 34.99,
+    badges: [
+      { text: "Best Seller", color: "red" },
+      { text: "SAVE 29%", color: "red" }
+    ]
+  },
+  {
+    id: 2,
+    image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&h=500&fit=crop",
+    name: "Premium Soft Teddy Bear",
+    brand: "Tiny Treasures",
+    rating: 4.8,
+    reviewCount: 456,
+    price: 18.99,
+    originalPrice: null,
+    badges: [
+      { text: "New", color: "red" }
+    ]
+  },
+  {
+    id: 3,
+    image: "https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=500&h=500&fit=crop",
+    name: "Complete Feeding Set",
+    brand: "Baby Bliss",
+    rating: 4.6,
+    reviewCount: 189,
+    price: 29.99,
+    originalPrice: 39.99,
+    badges: [
+      { text: "Sale", color: "red" },
+      { text: "SAVE 25%", color: "red" }
+    ]
+  },
+  {
+    id: 4,
+    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&h=500&fit=crop",
+    name: "Musical Nursery Mobile",
+    brand: "Sweet Dreams",
+    rating: 4.7,
+    reviewCount: 312,
+    price: 34.99,
+    originalPrice: null,
+    badges: [
+      { text: "Trending", color: "red" }
+    ]
+  },
+  {
+    id: 5,
+    image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500&h=500&fit=crop",
+    name: "Baby Bath Towel Set",
+    brand: "Little Angels",
+    rating: 4.9,
+    reviewCount: 501,
+    price: 19.99,
+    originalPrice: 25.99,
+    badges: [
+      { text: "Popular", color: "red" },
+      { text: "SAVE 23%", color: "red" }
+    ]
+  }
+];

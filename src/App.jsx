@@ -4,6 +4,7 @@ import CategoriesCard from "./components/CategoriesCard";
 import FeaturedVendorsSection from "./components/FeaturedVendor";
 import HeroSection from "./components/Hero";
 import Navbar from "./components/Navbar";
+import TrendingProducts from "./components/TrendingProduct";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     <CategoriesSection/>
     <FeaturedVendorsSection/>
     <BecomeVendor/>
+    <TrendingProducts/>
     {/* <TrendingProductsSection/>
     <ShopByAgeSection/>
     <Footer/> */}
