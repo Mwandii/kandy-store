@@ -5,10 +5,10 @@ import {
   FaUser,
   FaBars,
   FaTimes,
-  FaPhone,
   FaQuestionCircle,
   FaStore,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -54,14 +54,14 @@ function Navbar() {
           For all your baby essentials. Fast and reliable delivery guaranteed
         </p>
         <div className="flex gap-4 font-medium">
-          <a href="#" className="hover:underline flex items-center gap-1.5 transition-all">
+          <Link href="#" className="hover:underline flex items-center gap-1.5 transition-all">
             <FaStore className="text-xs" />
             Seller Center
-          </a>
-          <a href="#" className="hover:underline flex items-center gap-1.5 transition-all">
+          </Link>
+          <Link to={""} className="hover:underline flex items-center gap-1.5 transition-all">
             <FaQuestionCircle className="text-xs" />
             Help & Support
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -132,21 +132,21 @@ function Navbar() {
       <div className="hidden md:block bg-white">
         <ul className="flex items-center gap-5 px-5 py-3 text-gray-700 text-sm font-bold max-w-7xl mx-auto">
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
-            <a>All Categories</a>
+            <Link>All Categories</Link>
           </li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
-            <a>New Arrivals</a>
+            <Link>New Arrivals</Link>
           </li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
-            <a>Best Deals</a>
+            <Link>Best Deals</Link>
           </li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
-            <a>Top Vendors</a>
+            <Link>Top Vendors</Link>
           </li>
           <li className="ml-auto">
-            <a className="inline-block bg-linear-to-r from-amber-600 to-orange-600 px-6 py-2.5 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-pointer">
+            <Link className="inline-block bg-linear-to-r from-amber-600 to-orange-600 px-6 py-2.5 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-pointer">
               Start Selling
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
