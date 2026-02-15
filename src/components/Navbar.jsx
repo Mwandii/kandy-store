@@ -156,7 +156,7 @@ function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 shadow-lg animate-slideDown">
           <ul className="flex flex-col py-3">
-            <MobileNavItem text="All Categories" />
+            <MobileNavItem text="All Categories" to="/categories"/>
             <MobileNavItem text="New Arrivals" />
             <MobileNavItem text="Best Deals" />
             <MobileNavItem text="Top Vendors" />
