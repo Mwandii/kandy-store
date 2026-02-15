@@ -156,7 +156,7 @@ function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 shadow-lg animate-slideDown">
           <ul className="flex flex-col py-3">
-            <MobileNavItem text="All Categories" to="/categories"/>
+            <MobileNavItem text="All Categories" to="/categories" />
             <MobileNavItem text="New Arrivals" />
             <MobileNavItem text="Best Deals" />
             <MobileNavItem text="Top Vendors" />
@@ -215,10 +215,10 @@ function Navbar() {
 }
 
 /* ── Mobile Nav Item ─────────────────────────────────────────────────────── */
-function MobileNavItem({ text }) {
+function MobileNavItem({ text, to }) {
   return (
     <li className="px-4 py-3 hover:bg-orange-50 hover:text-orange-600 transition-colors cursor-pointer border-b border-gray-100 font-semibold text-gray-700">
-      <a>{text}</a>
+      <Link to={to}>{text}</Link>
     </li>
   );
 }

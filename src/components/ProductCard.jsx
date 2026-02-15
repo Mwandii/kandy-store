@@ -100,7 +100,7 @@ export default function ProductCard({ product }) {
         <p className="text-[10px] md:text-xs text-gray-500 mb-1 truncate">{brand}</p>
 
         {/* Product name */}
-        <h3 className="text-sm md:text-base font-semibold text-gray-900 mb-2 line-clamp-2 leading-snug min-h-[2.5rem] md:min-h-[3rem]">
+        <h3 className="text-sm md:text-base font-semibold text-gray-900 mb-2 line-clamp-2 leading-snug min-h-10 md:min-h-12">
           {name}
         </h3>
 

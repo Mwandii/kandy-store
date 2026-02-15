@@ -74,7 +74,7 @@ function CategoryProductsPage() {
   return (
     <div className="min-h-screen bg-white pt-20 md:pt-28">
       {/* Header */}
-      <div className="bg-gradient-to-b from-orange-50/50 to-white border-b border-gray-200">
+      <div className="bg-linear-to-b from-orange-50/50 to-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-5 py-6 md:py-10">
           {/* Breadcrumb & Back button */}
           <div className="mb-6">
@@ -103,7 +103,7 @@ function CategoryProductsPage() {
           <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
             {/* Icon */}
             <div
-              className={`w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br ${category.color} flex items-center justify-center text-4xl md:text-6xl shadow-lg flex-shrink-0`}
+              className={`w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-linear-to-br ${category.color} flex items-center justify-center text-4xl md:text-6xl shadow-lg shrink-0`}
             >
               {category.icon}
             </div>
@@ -131,7 +131,7 @@ function CategoryProductsPage() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 md:gap-4 mb-6 md:mb-8">
           {/* Sort Dropdown */}
           <div className="flex items-center gap-2 md:gap-3">
-            <FaSortAmountDown className="text-gray-400 text-sm md:text-base flex-shrink-0" />
+            <FaSortAmountDown className="text-gray-400 text-sm md:text-base shrink-0" />
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
@@ -146,7 +146,7 @@ function CategoryProductsPage() {
 
           {/* Price Filter */}
           <div className="flex items-center gap-2 md:gap-3">
-            <FaFilter className="text-gray-400 text-sm md:text-base flex-shrink-0" />
+            <FaFilter className="text-gray-400 text-sm md:text-base shrink-0" />
             <select
               value={priceRange}
               onChange={(e) => setPriceRange(e.target.value)}
@@ -206,11 +206,11 @@ function CategoryProductsPage() {
 function LoadingSkeleton() {
   return (
     <div className="min-h-screen bg-white pt-20 md:pt-28">
-      <div className="bg-gradient-to-b from-orange-50/50 to-white border-b border-gray-200">
+      <div className="bg-linear-to-b from-orange-50/50 to-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-5 py-6 md:py-10">
           <div className="h-4 md:h-6 w-48 bg-gray-200 rounded mb-4 md:mb-6 animate-pulse" />
           <div className="flex items-center gap-4 md:gap-6">
-            <div className="w-16 h-16 md:w-24 md:h-24 bg-gray-200 rounded-2xl animate-pulse flex-shrink-0" />
+            <div className="w-16 h-16 md:w-24 md:h-24 bg-gray-200 rounded-2xl animate-pulse shrink-0" />
             <div className="flex-1 space-y-2 md:space-y-3">
               <div className="h-8 md:h-10 bg-gray-200 rounded w-1/2 animate-pulse" />
               <div className="h-3 md:h-4 bg-gray-200 rounded w-3/4 animate-pulse" />

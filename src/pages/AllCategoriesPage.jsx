@@ -28,7 +28,7 @@ function AllCategoriesPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50/30 to-white pt-20 md:pt-28">
+    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-20 md:pt-28">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-5 mb-8 md:mb-12">
         {/* Breadcrumb */}
@@ -44,7 +44,7 @@ function AllCategoriesPage() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-linear-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
                 <FaThLarge className="text-white text-xl md:text-2xl" />
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
