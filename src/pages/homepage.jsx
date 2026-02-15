@@ -10,14 +10,12 @@ import TrendingProducts from "../components/TrendingProduct";
 function Homepage() {
   return (
     <>
-    <Navbar/>
     <HeroSection/>
     <CategoriesSection/>
     <FeaturedVendorsSection/>
     <BecomeVendor/>
     <TrendingProducts/>
     <ShopByAge/>
-    <Footer/>
     </>
   )
 }

@@ -9,6 +9,7 @@ import {
   FaStore,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import AllCategoriesPage from "../pages/AllCategoriesPage";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -132,7 +133,7 @@ function Navbar() {
       <div className="hidden md:block bg-white">
         <ul className="flex items-center gap-5 px-5 py-3 text-gray-700 text-sm font-bold max-w-7xl mx-auto">
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
-            <Link>All Categories</Link>
+            <Link to="/categories">All Categories</Link>
           </li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
             <Link>New Arrivals</Link>

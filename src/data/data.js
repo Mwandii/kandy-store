@@ -208,3 +208,298 @@ export const ageGroupsMock = [
     image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&h=600&fit=crop",
   },
 ];
+// Mock data for categories and their products
+export const categoriesMock = [
+  {
+    id: 1,
+    name: "Baby Clothing",
+    slug: "baby-clothing",
+    description: "Soft, comfortable clothing for your little one",
+    icon: "👕",
+    image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop",
+    itemCount: 245,
+    color: "from-pink-500 to-rose-500"
+  },
+  {
+    id: 2,
+    name: "Toys & Games",
+    slug: "toys-games",
+    description: "Educational and fun toys for development",
+    icon: "🧸",
+    image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=400&fit=crop",
+    itemCount: 189,
+    color: "from-blue-500 to-cyan-500"
+  },
+  {
+    id: 3,
+    name: "Feeding Essentials",
+    slug: "feeding",
+    description: "Bottles, bibs, and feeding accessories",
+    icon: "🍼",
+    image: "https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=400&h=400&fit=crop",
+    itemCount: 156,
+    color: "from-green-500 to-emerald-500"
+  },
+  {
+    id: 4,
+    name: "Nursery Furniture",
+    slug: "nursery-furniture",
+    description: "Cribs, changing tables, and more",
+    icon: "🛏️",
+    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&h=400&fit=crop",
+    itemCount: 87,
+    color: "from-purple-500 to-violet-500"
+  },
+  {
+    id: 5,
+    name: "Bath & Skincare",
+    slug: "bath-skincare",
+    description: "Gentle products for baby's delicate skin",
+    icon: "🛁",
+    image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=400&h=400&fit=crop",
+    itemCount: 134,
+    color: "from-orange-500 to-amber-500"
+  },
+  {
+    id: 6,
+    name: "Diapers & Wipes",
+    slug: "diapers-wipes",
+    description: "Everything for diaper changes",
+    icon: "🧷",
+    image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&h=400&fit=crop",
+    itemCount: 98,
+    color: "from-teal-500 to-cyan-500"
+  },
+  {
+    id: 7,
+    name: "Strollers & Carriers",
+    slug: "strollers-carriers",
+    description: "Safe and comfortable transport",
+    icon: "🚼",
+    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=400&fit=crop",
+    itemCount: 72,
+    color: "from-indigo-500 to-blue-500"
+  },
+  {
+    id: 8,
+    name: "Baby Safety",
+    slug: "baby-safety",
+    description: "Monitors, gates, and safety gear",
+    icon: "🛡️",
+    image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=400&h=400&fit=crop",
+    itemCount: 115,
+    color: "from-red-500 to-pink-500"
+  }
+];
+
+// Mock products by category
+export const productsByCategoryMock = {
+  1: [ // Baby Clothing
+    {
+      id: 101,
+      name: "Organic Cotton Onesie Set",
+      brand: "Little Angels",
+      rating: 4.8,
+      reviewCount: 342,
+      price: 29.99,
+      originalPrice: 39.99,
+      image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
+      badges: [{ text: "Best Seller", color: "red" }],
+      categoryId: 1
+    },
+    {
+      id: 102,
+      name: "Baby Romper with Hat",
+      brand: "Tiny Treasures",
+      rating: 4.6,
+      reviewCount: 187,
+      price: 24.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&h=500&fit=crop",
+      badges: [{ text: "New", color: "red" }],
+      categoryId: 1
+    },
+    {
+      id: 103,
+      name: "Winter Baby Jacket",
+      brand: "Baby Bliss",
+      rating: 4.9,
+      reviewCount: 256,
+      price: 44.99,
+      originalPrice: 59.99,
+      image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 25%", color: "red" }],
+      categoryId: 1
+    },
+    {
+      id: 104,
+      name: "Newborn Sleep Gown",
+      brand: "Sweet Dreams",
+      rating: 4.7,
+      reviewCount: 198,
+      price: 19.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
+      badges: [],
+      categoryId: 1
+    }
+  ],
+  2: [ // Toys & Games
+    {
+      id: 201,
+      name: "Soft Plush Teddy Bear",
+      brand: "Tiny Treasures",
+      rating: 4.9,
+      reviewCount: 456,
+      price: 18.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&h=500&fit=crop",
+      badges: [{ text: "Popular", color: "red" }],
+      categoryId: 2
+    },
+    {
+      id: 202,
+      name: "Stacking Rings Toy",
+      brand: "GrowBig Kids",
+      rating: 4.7,
+      reviewCount: 234,
+      price: 14.99,
+      originalPrice: 19.99,
+      image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 25%", color: "red" }],
+      categoryId: 2
+    },
+    {
+      id: 203,
+      name: "Musical Activity Cube",
+      brand: "Baby Bliss",
+      rating: 4.8,
+      reviewCount: 312,
+      price: 34.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&h=500&fit=crop",
+      badges: [{ text: "New", color: "red" }],
+      categoryId: 2
+    }
+  ],
+  3: [ // Feeding Essentials
+    {
+      id: 301,
+      name: "Anti-Colic Baby Bottles Set",
+      brand: "Baby Bliss",
+      rating: 4.8,
+      reviewCount: 523,
+      price: 29.99,
+      originalPrice: 39.99,
+      image: "https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=500&h=500&fit=crop",
+      badges: [{ text: "Best Seller", color: "red" }],
+      categoryId: 3
+    },
+    {
+      id: 302,
+      name: "Silicone Baby Bibs",
+      brand: "Little Angels",
+      rating: 4.6,
+      reviewCount: 189,
+      price: 12.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
+      badges: [],
+      categoryId: 3
+    }
+  ],
+  4: [ // Nursery Furniture
+    {
+      id: 401,
+      name: "Convertible Baby Crib",
+      brand: "Sweet Dreams",
+      rating: 4.9,
+      reviewCount: 287,
+      price: 299.99,
+      originalPrice: 399.99,
+      image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 25%", color: "red" }],
+      categoryId: 4
+    },
+    {
+      id: 402,
+      name: "Changing Table with Storage",
+      brand: "Tiny Treasures",
+      rating: 4.7,
+      reviewCount: 156,
+      price: 179.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&h=500&fit=crop",
+      badges: [{ text: "New", color: "red" }],
+      categoryId: 4
+    }
+  ],
+  5: [ // Bath & Skincare
+    {
+      id: 501,
+      name: "Baby Bath Towel Set",
+      brand: "Little Angels",
+      rating: 4.9,
+      reviewCount: 501,
+      price: 19.99,
+      originalPrice: 25.99,
+      image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500&h=500&fit=crop",
+      badges: [{ text: "Popular", color: "red" }],
+      categoryId: 5
+    },
+    {
+      id: 502,
+      name: "Organic Baby Shampoo",
+      brand: "Baby Bliss",
+      rating: 4.8,
+      reviewCount: 423,
+      price: 14.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500&h=500&fit=crop",
+      badges: [{ text: "Best Seller", color: "red" }],
+      categoryId: 5
+    }
+  ],
+  6: [ // Diapers & Wipes
+    {
+      id: 601,
+      name: "Premium Diapers Size 3",
+      brand: "Baby Bliss",
+      rating: 4.7,
+      reviewCount: 678,
+      price: 39.99,
+      originalPrice: 49.99,
+      image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 20%", color: "red" }],
+      categoryId: 6
+    }
+  ],
+  7: [ // Strollers & Carriers
+    {
+      id: 701,
+      name: "Lightweight Travel Stroller",
+      brand: "Tiny Treasures",
+      rating: 4.8,
+      reviewCount: 345,
+      price: 199.99,
+      originalPrice: 249.99,
+      image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop",
+      badges: [{ text: "Best Seller", color: "red" }],
+      categoryId: 7
+    }
+  ],
+  8: [ // Baby Safety
+    {
+      id: 801,
+      name: "Baby Monitor with Camera",
+      brand: "Sweet Dreams",
+      rating: 4.9,
+      reviewCount: 432,
+      price: 129.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=500&h=500&fit=crop",
+      badges: [{ text: "New", color: "red" }],
+      categoryId: 8
+    }
+  ]
+};
