@@ -9,6 +9,7 @@ import CategoryProductsPage from "./pages/CategoryProducts";
 import CartDrawer from "./components/Cartdrawer";
 import CartPage from "./pages/CartPage";
 import AllVendorsPage from "./pages/AllVendors";
+import NewArrivalsPage from "./pages/NewArrival";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
 
           <Route path="/cart" element={<CartPage />} />
           <Route path="/vendors" element={<AllVendorsPage />} />
+          <Route path="/new-arrivals" element={<NewArrivalsPage />} />
         </Routes>
         </main>
         {/* Footer - shows on all pages */}

@@ -157,7 +157,7 @@ function Navbar() {
             <Link to="/categories">All Categories</Link>
           </li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
-            <a>New Arrivals</a>
+            <Link to="/new-arrivals">New Arrivals</Link>
           </li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
             <a>Best Deals</a>
