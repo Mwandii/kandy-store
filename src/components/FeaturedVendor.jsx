@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaArrowRight, FaMedal } from "react-icons/fa";
 import { mockVendors } from "../data/data";
 import VendorCard from "./FeaturedCard";
+import { Link } from "react-router-dom";
 
 function FeaturedVendors() {
   const [topVendors, setTopVendors] = useState([]);
@@ -57,10 +58,12 @@ function FeaturedVendors() {
         </div>
 
         {/* Right: View All button (desktop) */}
+        <Link to="/vendors">
         <button className="hidden md:flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold text-sm transition-all duration-200 group whitespace-nowrap">
           View All Vendors
           <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-200" />
         </button>
+        </Link>
       </div>
 
       {/* ── Skeleton Loading ── */}

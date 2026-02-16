@@ -1,12 +1,14 @@
-import {
-  FaBoxOpen,
+import { 
+  FaStar, 
+  FaStarHalfAlt, 
+  FaRegStar, 
+  FaCheckCircle, 
+  FaBoxOpen, 
   FaUsers,
-  FaCheckCircle,
-  FaArrowRight,
-  FaStar,
-  FaStarHalfAlt,
-  FaRegStar,
+  FaMapMarkerAlt,
+  FaClock
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 /* ── Star renderer ─────────────────────────────────────────────────────────── */
 function Stars({ rating }) {
@@ -16,11 +18,11 @@ function Stars({ rating }) {
         const full = rating >= n;
         const half = !full && rating >= n - 0.5;
         return full ? (
-          <FaStar key={n} className="text-amber-400 text-sm md:text-[15px]" />
+          <FaStar key={n} className="text-amber-400 text-sm md:text-base" />
         ) : half ? (
-          <FaStarHalfAlt key={n} className="text-amber-400 text-sm md:text-[15px]" />
+          <FaStarHalfAlt key={n} className="text-amber-400 text-sm md:text-base" />
         ) : (
-          <FaRegStar key={n} className="text-gray-300 text-sm md:text-[15px]" />
+          <FaRegStar key={n} className="text-gray-300 text-sm md:text-base" />
         );
       })}
     </div>
@@ -33,111 +35,133 @@ function fmt(n) {
   return n.toString();
 }
 
-/* ── VendorCard ─────────────────────────────────────────────────────────────── */
+/* ── VendorCard (Enhanced for All Vendors page) ────────────────────────────── */
 export default function VendorCard({ vendor }) {
+  const navigate = useNavigate();
+  
   const {
+    slug,
     name,
     category,
+    description,
     rating,
     reviewCount,
     products,
     customers,
     coverImage,
     logoIcon,
+    verified,
+    location,
+    responseTime,
+    tags = []
   } = vendor;
 
-  return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-md flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl cursor-default group">
+  const handleClick = () => {
+    navigate(`/vendors/${slug}`);
+  };
 
-      {/* ── Cover Banner ── */}
-      <div
-        className="relative h-36 sm:h-40 md:h-44 bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${coverImage})`, backgroundSize: "cover" }}
-      >
-        {/* Gradient overlay for better badge visibility */}
-        <div className="absolute inset-0 bg-linear-to-b from-black/5 to-transparent" />
+  return (
+    <div 
+      onClick={handleClick}
+      className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+    >
+      
+      {/* ── Cover Image ── */}
+      <div className="relative h-40 md:h-48 overflow-hidden">
+        <img
+          src={coverImage}
+          alt={name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
         {/* Verified badge */}
-        <div className="absolute top-2.5 right-2.5 md:top-3.5 md:right-3.5 bg-white rounded-full px-2.5 py-1 md:px-3 md:py-1 flex items-center gap-1 md:gap-1.5 text-xs md:text-[13px] font-semibold text-gray-900 shadow-md">
-          <FaCheckCircle className="text-green-500 text-xs md:text-sm" />
-          Verified
-        </div>
+        {verified && (
+          <div className="absolute top-3 right-3 bg-white rounded-full px-2.5 md:px-3 py-1 flex items-center gap-1 md:gap-1.5 text-xs md:text-sm font-semibold shadow-md">
+            <FaCheckCircle className="text-green-500 text-xs md:text-sm" />
+            Verified
+          </div>
+        )}
 
-        {/* Logo notch */}
-        <div className="absolute -bottom-6 md:-bottom-8 left-4 md:left-5 w-12 h-12 md:w-16 md:h-16 bg-white rounded-xl md:rounded-2xl shadow-lg flex items-center justify-center text-xl md:text-2xl transition-transform duration-300 group-hover:scale-110">
-          <img
-            src={logoIcon}
-            alt={`${name} logo`}
-            className="w-8 h-8 md:w-10 md:h-10 object-contain rounded-xl md:rounded-2xl"
-          />
+        {/* Logo */}
+        <div className="absolute -bottom-6 md:-bottom-8 left-4 md:left-5 w-12 h-12 md:w-16 md:h-16 bg-white rounded-xl md:rounded-2xl shadow-lg flex items-center justify-center text-2xl md:text-3xl border-4 border-white transition-transform duration-300 group-hover:scale-110">
+          {logoIcon}
         </div>
       </div>
 
       {/* ── Card Body ── */}
-      <div className="pt-8 md:pt-12 px-4 md:px-5 pb-4 md:pb-5 flex flex-col flex-1">
-
-        {/* Name & category */}
-        <div className="mb-2 md:mb-2.5">
-          <h3 className="text-base md:text-[17px] font-bold text-gray-900 leading-snug m-0 line-clamp-1">
+      <div className="pt-8 md:pt-12 px-4 md:px-5 pb-4 md:pb-5">
+        
+        {/* Name & Category */}
+        <div className="mb-3">
+          <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-1 group-hover:text-orange-600 transition-colors line-clamp-1">
             {name}
           </h3>
-          <p className="text-xs md:text-[13px] text-gray-500 mt-0.5 line-clamp-1">
-            {category}
-          </p>
+          <p className="text-xs md:text-sm text-gray-500 line-clamp-1">{category}</p>
         </div>
 
-        {/* Rating row */}
-        <div className="flex items-center gap-1.5 md:gap-2 mb-3 md:mb-4">
+        {/* Description */}
+        <p className="text-xs md:text-sm text-gray-600 mb-3 md:mb-4 line-clamp-2 leading-relaxed">
+          {description}
+        </p>
+
+        {/* Rating */}
+        <div className="flex items-center gap-2 mb-3 md:mb-4">
           <Stars rating={rating} />
-          <span className="font-bold text-xs md:text-sm text-gray-900">
-            {rating.toFixed(1)}
-          </span>
-          <span className="text-xs md:text-[13px] text-gray-400">
-            ({reviewCount.toLocaleString()})
-          </span>
+          <span className="font-bold text-sm md:text-base text-gray-900">{rating.toFixed(1)}</span>
+          <span className="text-xs md:text-sm text-gray-400">({reviewCount.toLocaleString()})</span>
         </div>
 
-        {/* Stats row */}
-        <div className="flex gap-2 md:gap-3 mb-4 md:mb-5">
-          <StatChip
-            icon={<FaBoxOpen className="text-orange-500 text-sm md:text-base" />}
-            value={fmt(products)}
-            label="Products"
-            bgClass="bg-orange-50"
-          />
-          <StatChip
-            icon={<FaUsers className="text-indigo-500 text-sm md:text-base" />}
-            value={fmt(customers)}
-            label="Customers"
-            bgClass="bg-indigo-50"
-          />
+        {/* Stats */}
+        <div className="grid grid-cols-2 gap-2 md:gap-3 mb-3 md:mb-4">
+          <div className="flex items-center gap-2 bg-orange-50 rounded-lg p-2">
+            <FaBoxOpen className="text-orange-500 text-sm md:text-base flex-shrink-0" />
+            <div className="min-w-0">
+              <p className="text-xs md:text-sm font-bold text-gray-900 truncate">{fmt(products)}</p>
+              <p className="text-[10px] md:text-xs text-gray-500">Products</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 bg-indigo-50 rounded-lg p-2">
+            <FaUsers className="text-indigo-500 text-sm md:text-base flex-shrink-0" />
+            <div className="min-w-0">
+              <p className="text-xs md:text-sm font-bold text-gray-900 truncate">{fmt(customers)}</p>
+              <p className="text-[10px] md:text-xs text-gray-500">Customers</p>
+            </div>
+          </div>
         </div>
 
-        {/* Visit Store CTA */}
-        <button className="mt-auto w-full py-2.5 md:py-3 rounded-xl bg-orange-50 text-orange-500 font-bold text-xs md:text-sm flex items-center justify-center gap-2 transition-all duration-200 hover:bg-orange-500 hover:text-white cursor-pointer border-0 group/btn">
-          Visit Store 
-          <FaArrowRight className="text-xs md:text-[13px] group-hover/btn:translate-x-1 transition-transform duration-200" />
+        {/* Location & Response Time */}
+        <div className="space-y-1.5 mb-4 text-xs md:text-sm">
+          <div className="flex items-center gap-2 text-gray-600">
+            <FaMapMarkerAlt className="text-orange-500 text-xs flex-shrink-0" />
+            <span className="truncate">{location}</span>
+          </div>
+          <div className="flex items-center gap-2 text-gray-600">
+            <FaClock className="text-green-500 text-xs flex-shrink-0" />
+            <span className="truncate">{responseTime}</span>
+          </div>
+        </div>
+
+        {/* Tags */}
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4">
+            {tags.slice(0, 3).map((tag, i) => (
+              <span
+                key={i}
+                className="text-[10px] md:text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Visit Store Button */}
+        <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold text-sm md:text-base py-2.5 md:py-3 rounded-xl transition-all duration-200 hover:scale-[1.02]">
+          Visit Store
         </button>
-
-      </div>
-    </div>
-  );
-}
-
-/* ── Stat chip ──────────────────────────────────────────────────────────────── */
-function StatChip({ icon, value, label, bgClass }) {
-  return (
-    <div className="flex-1 bg-gray-50 rounded-lg md:rounded-xl p-2 md:p-2.5 flex items-center gap-2 md:gap-2.5">
-      <div className={`w-7 h-7 md:w-9 md:h-9 rounded-lg md:rounded-[10px] ${bgClass} flex items-center justify-center shrink-0`}>
-        {icon}
-      </div>
-      <div className="min-w-0">
-        <div className="font-bold text-sm md:text-[15px] text-gray-900 leading-tight truncate">
-          {value}
-        </div>
-        <div className="text-[10px] md:text-[11px] text-gray-400 truncate">
-          {label}
-        </div>
       </div>
     </div>
   );

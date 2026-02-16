@@ -8,6 +8,7 @@ import AllCategoriesPage from "./pages/AllCategoriesPage";
 import CategoryProductsPage from "./pages/CategoryProducts";
 import CartDrawer from "./components/Cartdrawer";
 import CartPage from "./pages/CartPage";
+import AllVendorsPage from "./pages/AllVendors";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/categories/:slug" element={<CategoryProductsPage />} />
 
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/vendors" element={<AllVendorsPage />} />
         </Routes>
         </main>
         {/* Footer - shows on all pages */}
