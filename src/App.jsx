@@ -7,6 +7,7 @@ import Homepage from "./pages/homepage"
 import AllCategoriesPage from "./pages/AllCategoriesPage";
 import CategoryProductsPage from "./pages/CategoryProducts";
 import CartDrawer from "./components/Cartdrawer";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         
         {/* Cart Drawer - accessible from all pages */}
         <CartDrawer/>
-        
+        <main className="pt-32 md:pt-36"> 
         {/* Routes */}
         <Routes>
           {/* Home Page - with all sections */}
@@ -28,8 +29,10 @@ function App() {
           
           {/* Single Category Products Page - filtered products with sort/filter */}
           <Route path="/categories/:slug" element={<CategoryProductsPage />} />
+
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
-        
+        </main>
         {/* Footer - shows on all pages */}
         <Footer />
       </div>

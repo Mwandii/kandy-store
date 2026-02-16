@@ -9,7 +9,7 @@ import {
   FaStore,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import AllCategoriesPage from "../pages/AllCategoriesPage";
+import { useCartStore } from "../store/cartStore";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,17 +18,19 @@ function Navbar() {
   const [isAtTop, setIsAtTop] = useState(true);
   const lastScrollY = useRef(0);
 
+  // Get cart state from Zustand
+  const cartItemCount = useCartStore((state) => state.cartItemCount);
+  const toggleCart = useCartStore((state) => state.toggleCart);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Check if at top of page
       setIsAtTop(currentScrollY < 10);
       
-      // Hide navbar when scrolling down, show when scrolling up
       if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setIsVisible(false);
-        setMobileMenuOpen(false); // Close mobile menu when hiding
+        setMobileMenuOpen(false);
       } else if (currentScrollY < lastScrollY.current) {
         setIsVisible(true);
       }
@@ -40,9 +42,14 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu handler
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
     <nav 
-      className={`sticky top-0 left-0 right-0 z-50 bg-white transition-all duration-500 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-500 ease-in-out ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       } ${
         isAtTop ? "shadow-md" : "shadow-2xl"
@@ -50,19 +57,19 @@ function Navbar() {
     >
       
       {/* ── Top Banner (hidden on mobile) ── */}
-      <div className="hidden md:flex justify-between px-5 py-2 bg-linear-to-r from-amber-600 via-amber-700 to-orange-600 text-white text-sm">
+      <div className="hidden md:flex justify-between px-5 py-2 bg-gradient-to-r from-amber-600 via-amber-700 to-orange-600 text-white text-sm">
         <p className="flex items-center">
           For all your baby essentials. Fast and reliable delivery guaranteed
         </p>
         <div className="flex gap-4 font-medium">
-          <Link href="#" className="hover:underline flex items-center gap-1.5 transition-all">
+          <a href="#" className="hover:underline flex items-center gap-1.5 transition-all">
             <FaStore className="text-xs" />
             Seller Center
-          </Link>
-          <Link to={""} className="hover:underline flex items-center gap-1.5 transition-all">
+          </a>
+          <a href="#" className="hover:underline flex items-center gap-1.5 transition-all">
             <FaQuestionCircle className="text-xs" />
             Help & Support
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -70,9 +77,11 @@ function Navbar() {
       <div className="flex px-4 md:px-6 py-3 md:py-4 justify-between items-center bg-white/95 backdrop-blur-md">
         
         {/* Logo */}
-        <h1 className="font-bold text-xl md:text-3xl bg-linear-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text text-transparent whitespace-nowrap">
-          Kandy Baby Store
-        </h1>
+        <Link to="/" onClick={closeMobileMenu}>
+          <h1 className="font-bold text-xl md:text-3xl bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text text-transparent whitespace-nowrap cursor-pointer">
+            Kandy Baby Store
+          </h1>
+        </Link>
 
         {/* Search Bar (desktop) */}
         <div className="hidden lg:block flex-1 max-w-2xl mx-8">
@@ -94,11 +103,23 @@ function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex gap-3 items-center">
-          <button className="flex items-center gap-2 text-gray-700 hover:text-orange-600 font-semibold transition-colors px-3 py-2 rounded-lg hover:bg-orange-50">
+          {/* Cart Button with Badge */}
+          <button 
+            onClick={toggleCart}
+            className="relative flex items-center gap-2 text-gray-700 hover:text-orange-600 font-semibold transition-colors px-3 py-2 rounded-lg hover:bg-orange-50"
+          >
             <FaShoppingCart className="text-lg" />
             <span className="hidden lg:inline">Cart</span>
+            
+            {/* Cart Badge */}
+            {cartItemCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-bounce-once">
+                {cartItemCount > 99 ? "99+" : cartItemCount}
+              </span>
+            )}
           </button>
-          <button className="flex items-center gap-2 bg-linear-to-r from-amber-600 to-orange-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all">
+
+          <button className="flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all">
             <FaUser className="text-sm" />
             <span>Login</span>
           </button>
@@ -136,18 +157,18 @@ function Navbar() {
             <Link to="/categories">All Categories</Link>
           </li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
-            <Link>New Arrivals</Link>
+            <a>New Arrivals</a>
           </li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
-            <Link>Best Deals</Link>
+            <a>Best Deals</a>
           </li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
-            <Link>Top Vendors</Link>
+            <a>Top Vendors</a>
           </li>
           <li className="ml-auto">
-            <Link className="inline-block bg-linear-to-r from-amber-600 to-orange-600 px-6 py-2.5 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-pointer">
+            <a className="inline-block bg-gradient-to-r from-amber-600 to-orange-600 px-6 py-2.5 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-pointer">
               Start Selling
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
@@ -156,22 +177,35 @@ function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 shadow-lg animate-slideDown">
           <ul className="flex flex-col py-3">
-            <MobileNavItem text="All Categories" to="/categories" />
-            <MobileNavItem text="New Arrivals" />
-            <MobileNavItem text="Best Deals" />
-            <MobileNavItem text="Top Vendors" />
+            <MobileNavItem text="All Categories" to="/categories" onClick={closeMobileMenu} />
+            <MobileNavItem text="New Arrivals" to="#" onClick={closeMobileMenu} />
+            <MobileNavItem text="Best Deals" to="#" onClick={closeMobileMenu} />
+            <MobileNavItem text="Top Vendors" to="#" onClick={closeMobileMenu} />
             
             {/* Mobile CTA buttons */}
             <li className="px-4 py-3 border-t border-gray-100 mt-2 pt-4 space-y-3">
-              <button className="w-full flex items-center justify-center gap-2 bg-linear-to-r from-amber-600 to-orange-600 text-white font-bold px-5 py-3 rounded-full shadow-md">
+              <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-bold px-5 py-3 rounded-full shadow-md">
                 <FaStore />
                 Start Selling
               </button>
               <div className="grid grid-cols-2 gap-3">
-                <button className="flex items-center justify-center gap-2 border-2 border-orange-500 text-orange-600 font-semibold px-4 py-2.5 rounded-full hover:bg-orange-50 transition-colors">
+                <Link to="/cart">
+                <button 
+                  onClick={() => {
+                    toggleCart();
+                    closeMobileMenu();
+                  }}
+                  className="relative flex items-center justify-center gap-2 border-2 border-orange-500 text-orange-600 font-semibold px-4 py-2.5 rounded-full hover:bg-orange-50 transition-colors"
+                >
                   <FaShoppingCart />
                   Cart
+                  {cartItemCount > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                      {cartItemCount > 99 ? "99+" : cartItemCount}
+                    </span>
+                  )}
                 </button>
+                </Link>
                 <button className="flex items-center justify-center gap-2 border-2 border-gray-300 text-gray-700 font-semibold px-4 py-2.5 rounded-full hover:bg-gray-50 transition-colors">
                   <FaUser />
                   Login
@@ -194,7 +228,7 @@ function Navbar() {
         </div>
       )}
 
-      {/* ── Mobile Menu Animation ── */}
+      {/* ── Animations ── */}
       <style>{`
         @keyframes slideDown {
           from {
@@ -209,16 +243,23 @@ function Navbar() {
         .animate-slideDown {
           animation: slideDown 0.2s ease-out;
         }
+        @keyframes bounceOnce {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.2); }
+        }
+        .animate-bounce-once {
+          animation: bounceOnce 0.3s ease-out;
+        }
       `}</style>
     </nav>
   );
 }
 
 /* ── Mobile Nav Item ─────────────────────────────────────────────────────── */
-function MobileNavItem({ text, to }) {
+function MobileNavItem({ text, to, onClick }) {
   return (
     <li className="px-4 py-3 hover:bg-orange-50 hover:text-orange-600 transition-colors cursor-pointer border-b border-gray-100 font-semibold text-gray-700">
-      <Link to={to}>{text}</Link>
+      <Link to={to} onClick={onClick}>{text}</Link>
     </li>
   );
 }
