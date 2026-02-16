@@ -159,6 +159,15 @@ function Navbar() {
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
             <Link to="/new-arrivals">New Arrivals</Link>
           </li>
+        <li> <Link 
+  to="/checkout"
+  onClick={(e) => {
+    console.log("Link clicked!");
+    console.log("Navigating to:", e.currentTarget.getAttribute("to"));
+  }}
+>
+  Test Link
+</Link></li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
             <a>Best Deals</a>
           </li>
@@ -206,6 +215,7 @@ function Navbar() {
                   )}
                 </button>
                 </Link>
+                
                 <button className="flex items-center justify-center gap-2 border-2 border-gray-300 text-gray-700 font-semibold px-4 py-2.5 rounded-full hover:bg-gray-50 transition-colors">
                   <FaUser />
                   Login

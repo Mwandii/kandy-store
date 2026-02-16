@@ -15,7 +15,8 @@ import { useCartStore } from "../store/cartStore";
 
 function CheckoutPage() {
   const navigate = useNavigate();
-  const { cart, cartTotal, clearCart } = useCartStore();
+  const cart = useCartStore((state) => state.cart);
+  const clearCart = useCartStore((state) => state.clearCart);
 
   // Redirect if cart is empty
   useEffect(() => {
@@ -48,8 +49,8 @@ function CheckoutPage() {
   const [errors, setErrors] = useState({});
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // Calculate totals
-  const subtotal = cartTotal;
+  // Calculate totals - manually calculate since cartTotal is a getter
+  const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
   const deliveryFee = formData.deliveryMethod === "express" ? 15.99 : 5.99;
   const tax = subtotal * 0.08;
   const total = subtotal + deliveryFee + tax;
@@ -727,6 +728,7 @@ function PaymentStep({
           Back
         </button>
         <button
+        type="button"
           onClick={handleSubmit}
           disabled={isProcessing}
           className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"

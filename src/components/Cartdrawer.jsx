@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { FaTimes, FaTrash, FaMinus, FaPlus, FaShoppingBag } from "react-icons/fa";
 import { useCartStore } from "../store/cartStore";
+import { Link } from "react-router-dom";
 
 export default function CartDrawer() {
   const {
@@ -110,9 +111,9 @@ export default function CartDrawer() {
 
             {/* Action Buttons */}
             <div className="space-y-2">
-              <button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3.5 md:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+              <Link to="/checkout" className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3.5 md:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
                 Proceed to Checkout
-              </button>
+              </Link>
               <button
                 onClick={closeCart}
                 className="w-full border-2 border-gray-300 text-gray-700 font-semibold py-3 md:py-3.5 rounded-full hover:bg-gray-100 transition-colors"

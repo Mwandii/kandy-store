@@ -10,6 +10,8 @@ import CartDrawer from "./components/Cartdrawer";
 import CartPage from "./pages/CartPage";
 import AllVendorsPage from "./pages/AllVendors";
 import NewArrivalsPage from "./pages/NewArrival";
+import CheckoutPage from "./pages/CheckoutPage";
+import OrderSuccessPage from "./pages/OrderSuccess";
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/vendors" element={<AllVendorsPage />} />
           <Route path="/new-arrivals" element={<NewArrivalsPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/order-success" element={<OrderSuccessPage />} />
         </Routes>
         </main>
         {/* Footer - shows on all pages */}

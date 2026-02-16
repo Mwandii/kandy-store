@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { 
   FaTrash, 
   FaMinus, 
@@ -17,9 +17,11 @@ function CartPage() {
     removeFromCart,
     updateQuantity,
     clearCart,
-    cartTotal,
-    cartItemCount,
   } = useCartStore();
+
+  // Calculate cart total manually
+  const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   // Calculate savings
   const totalSavings = cart.reduce((total, item) => {
@@ -223,6 +225,8 @@ function CartItem({ item, onRemove, onUpdateQuantity }) {
 
 /* ── Order Summary ───────────────────────────────────────────────────────── */
 function OrderSummary({ subtotal, shipping, tax, total, savings }) {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white rounded-2xl p-6 shadow-lg border-2 border-orange-100">
       <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">Order Summary</h2>
@@ -281,12 +285,12 @@ function OrderSummary({ subtotal, shipping, tax, total, savings }) {
       )}
 
       {/* Checkout Button */}
-      <Link
-        to="/checkout"
-        className="block w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 rounded-xl text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-3"
+      <button
+        onClick={() => navigate("/checkout")}
+        className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-3"
       >
         Proceed to Checkout
-      </Link>
+      </button>
 
       <Link
         to="/"
