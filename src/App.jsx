@@ -12,7 +12,8 @@ import AllVendorsPage from "./pages/AllVendors";
 import NewArrivalsPage from "./pages/NewArrival";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccess";
-import ShopByAge from "./components/ShopByAge";
+import ShopByAge from "./pages/ShopByAge";
+
 
 function App() {
   return (

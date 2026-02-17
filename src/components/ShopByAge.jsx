@@ -2,46 +2,30 @@ import { useState, useEffect } from "react";
 import AgeGroupCard from "./AgeGroupCard";
 import { ageGroupsMock } from "../data/data";
 
-// Simulate API fetch with delay
-const fetchAgeGroups = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(ageGroupsMock);
-    }, 600);
-  });
-};
-
 function ShopByAge() {
   const [ageGroups, setAgeGroups] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let isMounted = true;
-
-    const loadAgeGroups = async () => {
+    const load = async () => {
       try {
-        const data = await fetchAgeGroups();
-        if (isMounted) {
-          setAgeGroups(data);
-        }
+        // Simulate API delay — swap for real API when ready:
+        // const data = await fetch("/api/age-groups").then(r => r.json());
+        await new Promise((r) => setTimeout(r, 600));
+        if (isMounted) setAgeGroups(ageGroupsMock);
       } catch (err) {
         console.error("Failed to load age groups:", err);
       } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
+        if (isMounted) setLoading(false);
       }
     };
-
-    loadAgeGroups();
-
-    return () => {
-      isMounted = false;
-    };
+    load();
+    return () => { isMounted = false; };
   }, []);
 
   return (
-    <section className="w-full bg-linear-to-b from-orange-50/30 to-white py-10 md:py-16 px-4 sm:px-5">
+    <section className="w-full bg-gradient-to-b from-orange-50/30 to-white py-10 md:py-16 px-4 sm:px-5">
       <div className="max-w-7xl mx-auto">
         
         {/* ── Section Header ── */}

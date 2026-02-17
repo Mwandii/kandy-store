@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaFilter, FaSortAmountDown, FaBaby } from "react-icons/fa";
 import ProductCard from "../components/ProductCard";
-import { allProductsMock } from "../data/categoriesData";
-import { ageGroupsMock } from "../data/ageGroupsMock";
+import { allProductsMock } from "../data/data";
+import { ageGroupsMock } from "../data/data";
 
 function ShopByAgePage() {
   const { slug } = useParams();
@@ -79,7 +79,7 @@ function ShopByAgePage() {
   // ── Skeleton ────────────────────────────────────────────────────────────────
   if (loading) {
     return (
-      <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
+      <div className="min-h-screen bg-gradient-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-5">
           <div className="animate-pulse mb-10">
             <div className="h-4 w-32 bg-gray-200 rounded mb-4" />
@@ -106,7 +106,7 @@ function ShopByAgePage() {
   if (!ageGroup) return null;
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-5">
 
         {/* ── Breadcrumb ── */}
@@ -170,7 +170,7 @@ function ShopByAgePage() {
             <Link
               key={group.id}
               to={`/shop-by-age/${group.slug}`}
-              className={`shrink-0 px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-200 ${
+              className={`flex-shrink-0 px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-200 ${
                 group.slug === slug
                   ? "bg-orange-500 text-white shadow-md"
                   : "bg-white text-gray-700 border-2 border-gray-200 hover:border-orange-300"
@@ -185,7 +185,7 @@ function ShopByAgePage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-8">
           {/* Category filter */}
           <div className="flex items-center gap-2">
-            <FaFilter className="text-gray-400 text-sm shrink-0" />
+            <FaFilter className="text-gray-400 text-sm flex-shrink-0" />
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
@@ -201,7 +201,7 @@ function ShopByAgePage() {
 
           {/* Price filter */}
           <div className="flex items-center gap-2">
-            <span className="text-gray-400 font-semibold text-sm shrink-0">$</span>
+            <span className="text-gray-400 font-semibold text-sm flex-shrink-0">$</span>
             <select
               value={priceRange}
               onChange={(e) => setPriceRange(e.target.value)}
@@ -217,7 +217,7 @@ function ShopByAgePage() {
 
           {/* Sort */}
           <div className="flex items-center gap-2">
-            <FaSortAmountDown className="text-gray-400 text-sm shrink-0" />
+            <FaSortAmountDown className="text-gray-400 text-sm flex-shrink-0" />
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}

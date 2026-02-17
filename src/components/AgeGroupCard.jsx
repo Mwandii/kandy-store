@@ -26,7 +26,7 @@ export default function AgeGroupCard({ ageGroup }) {
 
         {/* Background image */}
         <div
-          className="absolute inset-0  group-hover:opacity-50 transition-opacity duration-300"
+          className="absolute inset-0 opacity-40 group-hover:opacity-50 transition-opacity duration-300"
           style={{
             backgroundImage: `url(${image})`,
             backgroundSize: "cover",
@@ -39,7 +39,10 @@ export default function AgeGroupCard({ ageGroup }) {
           <span className="text-[10px] md:text-xs font-bold text-gray-900">{itemCount}</span>
         </div>
 
-        
+        {/* Icon */}
+        <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 w-16 h-16 md:w-20 md:h-20 bg-white/90 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-xl transition-transform duration-300 group-hover:scale-110 flex items-center justify-center text-3xl md:text-4xl">
+          {icon || "👶"}
+        </div>
       </div>
 
       {/* ── Content Section ── */}
