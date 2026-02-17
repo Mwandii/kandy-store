@@ -43,7 +43,7 @@ function TrendingProducts() {
   }, []);
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-5 py-8 md:py-12">
+    <section id="trending" className="w-full max-w-7xl mx-auto px-4 sm:px-5 py-8 md:py-12">
       
       {/* ── Section Header ── */}
       <div className="mb-8 md:mb-10">

@@ -159,12 +159,16 @@ function Navbar() {
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
             <Link to="/new-arrivals">New Arrivals</Link>
           </li>
+          <Link to="/#trending">
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
             <a>Best Deals</a>
           </li>
+          </Link>
+          <Link to="/#featured-vendors">
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
             <a>Top Vendors</a>
           </li>
+          </Link>
           <li className="ml-auto">
             <a className="inline-block bg-linear-to-r from-amber-600 to-orange-600 px-6 py-2.5 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-pointer">
               Start Selling
@@ -178,9 +182,9 @@ function Navbar() {
         <div className="md:hidden bg-white border-t border-gray-200 shadow-lg animate-slideDown">
           <ul className="flex flex-col py-3">
             <MobileNavItem text="All Categories" to="/categories" onClick={closeMobileMenu} />
-            <MobileNavItem text="New Arrivals" to="#" onClick={closeMobileMenu} />
-            <MobileNavItem text="Best Deals" to="#" onClick={closeMobileMenu} />
-            <MobileNavItem text="Top Vendors" to="#" onClick={closeMobileMenu} />
+            <MobileNavItem text="New Arrivals" to="/new-arrivals" onClick={closeMobileMenu} />
+            <MobileNavItem text="Best Deals" to="/#trending" onClick={closeMobileMenu} />
+            <MobileNavItem text="Top Vendors" to="/#featured-vendors" onClick={closeMobileMenu} />
             
             {/* Mobile CTA buttons */}
             <li className="px-4 py-3 border-t border-gray-100 mt-2 pt-4 space-y-3">

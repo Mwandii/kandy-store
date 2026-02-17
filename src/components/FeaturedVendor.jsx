@@ -31,7 +31,7 @@ function FeaturedVendors() {
   }, []);
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 sm:px-5 mt-8 md:mt-12 py-6 md:py-10">
+    <section id="featured-vendors" className="w-full max-w-7xl mx-auto px-4 sm:px-5 mt-8 md:mt-12 py-6 md:py-10">
       {/* ── Section Header ── */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4 md:gap-6 mb-8 md:mb-12">
         {/* Left: Heading */}
