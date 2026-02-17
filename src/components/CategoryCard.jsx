@@ -21,7 +21,7 @@ export default function CategoryCard({ category }) {
 
         {/* Background image */}
         <div
-          className="absolute inset-0 opacity-30 group-hover:opacity-40 transition-opacity duration-300"
+          className="absolute inset-0  group-hover:opacity-40 transition-opacity duration-300"
           style={{
             backgroundImage: `url(${image})`,
             backgroundSize: "cover",
@@ -29,12 +29,7 @@ export default function CategoryCard({ category }) {
           }}
         />
 
-        {/* Icon */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-5xl md:text-7xl group-hover:scale-110 transition-transform duration-300">
-            {icon}
-          </div>
-        </div>
+        
 
         {/* Item count badge */}
         <div className="absolute top-2 right-2 md:top-3 md:right-3 bg-white/90 backdrop-blur-sm rounded-full px-2.5 py-1 md:px-3 md:py-1 shadow-md">
