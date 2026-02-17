@@ -25,7 +25,7 @@ function ShopByAge() {
   }, []);
 
   return (
-    <section className="w-full bg-gradient-to-b from-orange-50/30 to-white py-10 md:py-16 px-4 sm:px-5">
+    <section className="w-full bg-linear-to-b from-orange-50/30 to-white py-10 md:py-16 px-4 sm:px-5">
       <div className="max-w-7xl mx-auto">
         
         {/* ── Section Header ── */}
