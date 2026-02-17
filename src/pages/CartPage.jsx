@@ -41,7 +41,7 @@ function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-5">
         
         {/* Header */}
@@ -133,7 +133,7 @@ function CartItem({ item, onRemove, onUpdateQuantity }) {
       <div className="flex gap-4 md:gap-6">
         
         {/* Product Image */}
-        <div className="w-24 h-24 md:w-32 md:h-32 bg-gray-100 rounded-xl overflow-hidden flex-shrink-0">
+        <div className="w-24 h-24 md:w-32 md:h-32 bg-gray-100 rounded-xl overflow-hidden shrink-0">
           <img
             src={item.image}
             alt={item.name}
@@ -156,7 +156,7 @@ function CartItem({ item, onRemove, onUpdateQuantity }) {
             {/* Remove button (desktop) */}
             <button
               onClick={() => onRemove(item.id)}
-              className="hidden md:flex items-center justify-center w-10 h-10 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors flex-shrink-0"
+              className="hidden md:flex items-center justify-center w-10 h-10 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors shrink-0"
               aria-label="Remove item"
             >
               <FaTrash className="text-sm" />
@@ -287,7 +287,7 @@ function OrderSummary({ subtotal, shipping, tax, total, savings }) {
       {/* Checkout Button */}
       <button
         onClick={() => navigate("/checkout")}
-        className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-3"
+        className="w-full bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] mb-3"
       >
         Proceed to Checkout
       </button>
@@ -305,7 +305,7 @@ function OrderSummary({ subtotal, shipping, tax, total, savings }) {
 /* ── Empty Cart State ────────────────────────────────────────────────────── */
 function EmptyCart() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
       <div className="max-w-2xl mx-auto px-4 text-center">
         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg">
           <div className="w-24 h-24 md:w-32 md:h-32 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -322,7 +322,7 @@ function EmptyCart() {
 
           <Link
             to="/"
-            className="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
+            className="inline-block bg-linear-to-r from-orange-500 to-orange-600 text-white font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
           >
             Start Shopping
           </Link>
@@ -337,7 +337,7 @@ function TrustBadges() {
   return (
     <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
       <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border border-gray-100 flex items-center gap-4">
-        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center shrink-0">
           <FaLock className="text-green-600 text-xl" />
         </div>
         <div>
@@ -347,7 +347,7 @@ function TrustBadges() {
       </div>
 
       <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border border-gray-100 flex items-center gap-4">
-        <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+        <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
           <FaTruck className="text-blue-600 text-xl" />
         </div>
         <div>
@@ -357,7 +357,7 @@ function TrustBadges() {
       </div>
 
       <div className="bg-white rounded-xl p-4 md:p-6 shadow-sm border border-gray-100 flex items-center gap-4">
-        <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+        <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center shrink-0">
           <FaUndo className="text-purple-600 text-xl" />
         </div>
         <div>

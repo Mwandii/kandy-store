@@ -17,7 +17,7 @@ function OrderSuccessPage() {
   if (!orderNumber) return null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50/30 to-white pt-32 md:pt-36 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-green-50/30 to-white pt-32 md:pt-36 pb-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-5">
         
         {/* Success Animation */}
@@ -49,7 +49,7 @@ function OrderSuccessPage() {
 
             {/* Email Confirmation */}
             <div className="flex items-start gap-3 bg-blue-50 p-4 rounded-xl border border-blue-200">
-              <FaEnvelope className="text-blue-600 text-xl mt-0.5 flex-shrink-0" />
+              <FaEnvelope className="text-blue-600 text-xl mt-0.5 shrink-0" />
               <div className="flex-1">
                 <p className="font-semibold text-gray-900 mb-1">Email Confirmation Sent</p>
                 <p className="text-sm text-gray-600">
@@ -60,7 +60,7 @@ function OrderSuccessPage() {
 
             {/* Order Status */}
             <div className="flex items-start gap-3 bg-orange-50 p-4 rounded-xl border border-orange-200">
-              <FaBox className="text-orange-600 text-xl mt-0.5 flex-shrink-0" />
+              <FaBox className="text-orange-600 text-xl mt-0.5 shrink-0" />
               <div className="flex-1">
                 <p className="font-semibold text-gray-900 mb-1">Order Processing</p>
                 <p className="text-sm text-gray-600">
@@ -76,7 +76,7 @@ function OrderSuccessPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-4">What's Next?</h2>
           <div className="space-y-4">
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center shrink-0">
                 <span className="text-orange-600 font-bold">1</span>
               </div>
               <div>
@@ -85,7 +85,7 @@ function OrderSuccessPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center shrink-0">
                 <span className="text-orange-600 font-bold">2</span>
               </div>
               <div>
@@ -94,7 +94,7 @@ function OrderSuccessPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center shrink-0">
                 <span className="text-orange-600 font-bold">3</span>
               </div>
               <div>
@@ -103,7 +103,7 @@ function OrderSuccessPage() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center shrink-0">
                 <span className="text-orange-600 font-bold">4</span>
               </div>
               <div>

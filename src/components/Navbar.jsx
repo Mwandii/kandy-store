@@ -57,7 +57,7 @@ function Navbar() {
     >
       
       {/* ── Top Banner (hidden on mobile) ── */}
-      <div className="hidden md:flex justify-between px-5 py-2 bg-gradient-to-r from-amber-600 via-amber-700 to-orange-600 text-white text-sm">
+      <div className="hidden md:flex justify-between px-5 py-2 bg-linear-to-r from-amber-600 via-amber-700 to-orange-600 text-white text-sm">
         <p className="flex items-center">
           For all your baby essentials. Fast and reliable delivery guaranteed
         </p>
@@ -78,7 +78,7 @@ function Navbar() {
         
         {/* Logo */}
         <Link to="/" onClick={closeMobileMenu}>
-          <h1 className="font-bold text-xl md:text-3xl bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text text-transparent whitespace-nowrap cursor-pointer">
+          <h1 className="font-bold text-xl md:text-3xl bg-linear-to-r from-amber-600 via-orange-600 to-amber-700 bg-clip-text text-transparent whitespace-nowrap cursor-pointer">
             Kandy Baby Store
           </h1>
         </Link>
@@ -119,7 +119,7 @@ function Navbar() {
             )}
           </button>
 
-          <button className="flex items-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all">
+          <button className="flex items-center gap-2 bg-linear-to-r from-amber-600 to-orange-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all">
             <FaUser className="text-sm" />
             <span>Login</span>
           </button>
@@ -159,15 +159,6 @@ function Navbar() {
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
             <Link to="/new-arrivals">New Arrivals</Link>
           </li>
-        <li> <Link 
-  to="/checkout"
-  onClick={(e) => {
-    console.log("Link clicked!");
-    console.log("Navigating to:", e.currentTarget.getAttribute("to"));
-  }}
->
-  Test Link
-</Link></li>
           <li className="hover:text-orange-600 transition-colors cursor-pointer">
             <a>Best Deals</a>
           </li>
@@ -175,7 +166,7 @@ function Navbar() {
             <a>Top Vendors</a>
           </li>
           <li className="ml-auto">
-            <a className="inline-block bg-gradient-to-r from-amber-600 to-orange-600 px-6 py-2.5 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-pointer">
+            <a className="inline-block bg-linear-to-r from-amber-600 to-orange-600 px-6 py-2.5 text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all cursor-pointer">
               Start Selling
             </a>
           </li>
@@ -193,7 +184,7 @@ function Navbar() {
             
             {/* Mobile CTA buttons */}
             <li className="px-4 py-3 border-t border-gray-100 mt-2 pt-4 space-y-3">
-              <button className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-bold px-5 py-3 rounded-full shadow-md">
+              <button className="w-full flex items-center justify-center gap-2 bg-linear-to-r from-amber-600 to-orange-600 text-white font-bold px-5 py-3 rounded-full shadow-md">
                 <FaStore />
                 Start Selling
               </button>

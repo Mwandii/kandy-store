@@ -67,7 +67,7 @@ function AllVendorsPage() {
   }, [searchQuery, selectedCategory, sortBy, vendors]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-5">
         
         {/* Header */}
@@ -85,7 +85,7 @@ function AllVendorsPage() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-6 mb-6">
             <div>
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-linear-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
                   <FaStore className="text-white text-xl md:text-2xl" />
                 </div>
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
@@ -123,7 +123,7 @@ function AllVendorsPage() {
         <div className="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4 mb-8">
           {/* Category Filter */}
           <div className="flex items-center gap-2 md:gap-3 flex-1">
-            <FaFilter className="text-gray-400 text-sm md:text-base flex-shrink-0" />
+            <FaFilter className="text-gray-400 text-sm md:text-base shrink-0" />
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
@@ -139,7 +139,7 @@ function AllVendorsPage() {
 
           {/* Sort */}
           <div className="flex items-center gap-2 md:gap-3 flex-1">
-            <FaSortAmountDown className="text-gray-400 text-sm md:text-base flex-shrink-0" />
+            <FaSortAmountDown className="text-gray-400 text-sm md:text-base shrink-0" />
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}

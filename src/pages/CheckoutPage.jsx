@@ -18,14 +18,8 @@ function CheckoutPage() {
   const cart = useCartStore((state) => state.cart);
   const clearCart = useCartStore((state) => state.clearCart);
 
-  // Redirect if cart is empty
-  useEffect(() => {
-    if (cart.length === 0) {
-      navigate("/cart");
-    }
-  }, [cart, navigate]);
-
   const [currentStep, setCurrentStep] = useState(1);
+  const [isProcessing, setIsProcessing] = useState(false);
   const [formData, setFormData] = useState({
     // Contact Info
     email: "",
@@ -47,7 +41,13 @@ function CheckoutPage() {
   });
 
   const [errors, setErrors] = useState({});
-  const [isProcessing, setIsProcessing] = useState(false);
+
+  // Redirect if cart is empty (but not if we're processing an order)
+  useEffect(() => {
+    if (cart.length === 0 && !isProcessing) {
+      navigate("/cart");
+    }
+  }, [cart, navigate, isProcessing]);
 
   // Calculate totals - manually calculate since cartTotal is a getter
   const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
@@ -147,7 +147,7 @@ function CheckoutPage() {
   if (cart.length === 0) return null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-5">
         
         {/* Header */}
@@ -256,7 +256,7 @@ function ProgressSteps({ steps, currentStep }) {
           return (
             <div key={step.number} className="flex items-center flex-1">
               {/* Step Circle */}
-              <div className="flex flex-col items-center flex-shrink-0">
+              <div className="flex flex-col items-center shrink-0">
                 <div
                   className={`w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-300 ${
                     isCompleted
@@ -715,7 +715,7 @@ function PaymentStep({
       </div>
 
       <div className="flex items-center gap-2 text-sm text-gray-600 bg-green-50 p-4 rounded-xl border border-green-200">
-        <FaLock className="text-green-600 flex-shrink-0" />
+        <FaLock className="text-green-600 shrink-0" />
         <p>Your payment information is encrypted and secure</p>
       </div>
 
@@ -728,10 +728,9 @@ function PaymentStep({
           Back
         </button>
         <button
-        type="button"
           onClick={handleSubmit}
           disabled={isProcessing}
-          className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isProcessing ? (
             <>
@@ -760,7 +759,7 @@ function OrderSummary({ cart, subtotal, deliveryFee, tax, total, deliveryMethod 
       <div className="space-y-4 mb-6 max-h-64 overflow-y-auto">
         {cart.map((item) => (
           <div key={item.id} className="flex gap-3">
-            <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+            <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden shrink-0">
               <img
                 src={item.image}
                 alt={item.name}

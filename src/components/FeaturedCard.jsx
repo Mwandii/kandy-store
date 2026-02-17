@@ -75,7 +75,7 @@ export default function VendorCard({ vendor }) {
         />
         
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
 
         {/* Verified badge */}
         {verified && (
@@ -117,14 +117,14 @@ export default function VendorCard({ vendor }) {
         {/* Stats */}
         <div className="grid grid-cols-2 gap-2 md:gap-3 mb-3 md:mb-4">
           <div className="flex items-center gap-2 bg-orange-50 rounded-lg p-2">
-            <FaBoxOpen className="text-orange-500 text-sm md:text-base flex-shrink-0" />
+            <FaBoxOpen className="text-orange-500 text-sm md:text-base shrink-0" />
             <div className="min-w-0">
               <p className="text-xs md:text-sm font-bold text-gray-900 truncate">{fmt(products)}</p>
               <p className="text-[10px] md:text-xs text-gray-500">Products</p>
             </div>
           </div>
           <div className="flex items-center gap-2 bg-indigo-50 rounded-lg p-2">
-            <FaUsers className="text-indigo-500 text-sm md:text-base flex-shrink-0" />
+            <FaUsers className="text-indigo-500 text-sm md:text-base shrink-0" />
             <div className="min-w-0">
               <p className="text-xs md:text-sm font-bold text-gray-900 truncate">{fmt(customers)}</p>
               <p className="text-[10px] md:text-xs text-gray-500">Customers</p>
@@ -135,11 +135,11 @@ export default function VendorCard({ vendor }) {
         {/* Location & Response Time */}
         <div className="space-y-1.5 mb-4 text-xs md:text-sm">
           <div className="flex items-center gap-2 text-gray-600">
-            <FaMapMarkerAlt className="text-orange-500 text-xs flex-shrink-0" />
+            <FaMapMarkerAlt className="text-orange-500 text-xs shrink-0" />
             <span className="truncate">{location}</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600">
-            <FaClock className="text-green-500 text-xs flex-shrink-0" />
+            <FaClock className="text-green-500 text-xs shrink-0" />
             <span className="truncate">{responseTime}</span>
           </div>
         </div>

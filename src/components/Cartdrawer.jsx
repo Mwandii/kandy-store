@@ -11,9 +11,11 @@ export default function CartDrawer() {
     removeFromCart,
     updateQuantity,
     clearCart,
-    cartTotal,
-    cartItemCount,
   } = useCartStore();
+
+  // Calculate totals manually (getters don't work as expected)
+  const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   // Prevent body scroll when cart is open
   useEffect(() => {
@@ -33,25 +35,31 @@ export default function CartDrawer() {
       {/* Backdrop Overlay */}
       {isCartOpen && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] transition-opacity duration-300"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-60 transition-opacity duration-300"
           onClick={closeCart}
         />
       )}
 
       {/* Cart Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:w-[480px] bg-white shadow-2xl z-[70] transform transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed top-0 right-0 h-full w-full sm:w-120 bg-white shadow-2xl z-70 transform transition-transform duration-300 ease-in-out flex flex-col ${
           isCartOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* ── Header ── */}
-        <div className="flex items-center justify-between p-4 md:p-6 border-b border-gray-200 bg-gradient-to-r from-orange-50 to-amber-50">
+        <div className="flex items-center justify-between p-4 md:p-6 border-b border-gray-200 bg-linear-to-r from-orange-50 to-amber-50">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
               <FaShoppingBag className="text-white text-lg" />
             </div>
             <div>
-              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Shopping Cart</h2>
+              <Link 
+                to="/cart" 
+                onClick={closeCart}
+                className="hover:text-orange-600 transition-colors"
+              >
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900">Shopping Cart</h2>
+              </Link>
               <p className="text-xs md:text-sm text-gray-500">
                 {cartItemCount} {cartItemCount === 1 ? "item" : "items"}
               </p>
@@ -111,7 +119,11 @@ export default function CartDrawer() {
 
             {/* Action Buttons */}
             <div className="space-y-2">
-              <Link to="/checkout" className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3.5 md:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+              <Link 
+                to="/checkout"
+                onClick={closeCart}
+                className="block w-full bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3.5 md:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] text-center"
+              >
                 Proceed to Checkout
               </Link>
               <button
@@ -133,7 +145,7 @@ function CartItem({ item, onRemove, onUpdateQuantity }) {
   return (
     <div className="flex gap-4 p-3 md:p-4 bg-white rounded-xl border border-gray-200 hover:shadow-md transition-shadow">
       {/* Product Image */}
-      <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+      <div className="w-20 h-20 md:w-24 md:h-24 bg-gray-100 rounded-lg overflow-hidden shrink-0">
         <img
           src={item.image}
           alt={item.name}
@@ -204,7 +216,7 @@ function EmptyCart({ closeCart }) {
       </p>
       <button
         onClick={closeCart}
-        className="bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
+        className="bg-linear-to-r from-orange-500 to-orange-600 text-white font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all hover:scale-105"
       >
         Start Shopping
       </button>

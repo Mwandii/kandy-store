@@ -81,7 +81,7 @@ export const useCartStore = create(
     }),
     {
       name: "kandy-baby-cart", // localStorage key
-      partialialize: (state) => ({ cart: state.cart }), // Only persist cart, not isCartOpen
+      partialize: (state) => ({ cart: state.cart }), // Only persist cart, not isCartOpen
     }
   )
 );
