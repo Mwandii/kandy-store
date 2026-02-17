@@ -12,6 +12,7 @@ import AllVendorsPage from "./pages/AllVendors";
 import NewArrivalsPage from "./pages/NewArrival";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderSuccessPage from "./pages/OrderSuccess";
+import ShopByAge from "./components/ShopByAge";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/new-arrivals" element={<NewArrivalsPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/order-success" element={<OrderSuccessPage />} />
+          <Route path="/shop-by-age/:slug" element={<ShopByAge />} />
         </Routes>
         </main>
         {/* Footer - shows on all pages */}

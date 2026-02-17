@@ -99,7 +99,7 @@ function CategoriesSection() {
         </div>
         <div className="flex gap-4 overflow-hidden justify-center">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="w-48 h-64 bg-gray-100 rounded-2xl animate-pulse flex-shrink-0" />
+            <div key={i} className="w-48 h-64 bg-gray-100 rounded-2xl animate-pulse shrink-0" />
           ))}
         </div>
       </section>
@@ -107,7 +107,7 @@ function CategoriesSection() {
   }
 
   return (
-    <section className="py-12 bg-gradient-to-b from-white via-orange-50/30 to-white">
+    <section className="py-12 bg-linear-to-b from-white via-orange-50/30 to-white">
       <div className="max-w-7xl mx-auto px-4">
 
         {/* ── Heading ── */}
@@ -117,7 +117,7 @@ function CategoriesSection() {
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
             Shop By{" "}
-            <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
               Category
             </span>
           </h2>
@@ -152,7 +152,7 @@ function CategoriesSection() {
             {categories.map((cat) => (
               <div
                 key={cat.id}
-                className="flex-shrink-0"
+                className="shrink-0"
                 style={{
                   // Show exactly visibleCount cards with gaps accounted for
                   // gap is 16px, so total gap = 16 * (visibleCount - 1)
@@ -214,7 +214,7 @@ function CategoriesSection() {
         <div className="flex justify-center mt-8">
           <button
             onClick={() => navigate("/categories")}
-            className="group flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 shadow-lg hover:shadow-xl text-white bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transition-all duration-300 hover:scale-105 font-semibold text-sm md:text-base"
+            className="group flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 shadow-lg hover:shadow-xl text-white bg-linear-to-r from-orange-500 to-orange-600 rounded-full transition-all duration-300 hover:scale-105 font-semibold text-sm md:text-base"
           >
             Browse All Categories
             <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
