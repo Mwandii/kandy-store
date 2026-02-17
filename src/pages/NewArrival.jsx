@@ -86,7 +86,7 @@ function NewArrivalsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-red-50/30 to-white pt-32 md:pt-36 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-red-50/30 to-white pt-32 md:pt-18 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-5">
         
         {/* Header */}

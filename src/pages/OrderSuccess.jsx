@@ -17,7 +17,7 @@ function OrderSuccessPage() {
   if (!orderNumber) return null;
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-green-50/30 to-white pt-32 md:pt-36 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-green-50/30 to-white pt-32 md:pt-18 pb-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-5">
         
         {/* Success Animation */}

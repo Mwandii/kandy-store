@@ -47,7 +47,7 @@ export default function CartDrawer() {
         }`}
       >
         {/* ── Header ── */}
-        <div className="flex items-center justify-between p-4 md:p-6 border-b border-gray-200 bg-linear-to-r from-orange-50 to-amber-50">
+        <div className="flex items-center justify-between p-4 md:p-4 border-b border-gray-200 bg-linear-to-r from-orange-50 to-amber-50">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
               <FaShoppingBag className="text-white text-lg" />
@@ -79,7 +79,7 @@ export default function CartDrawer() {
           {cart.length === 0 ? (
             <EmptyCart closeCart={closeCart} />
           ) : (
-            <div className="space-y-4">
+            <div className="space-y-2">
               {cart.map((item) => (
                 <CartItem
                   key={item.id}
@@ -105,11 +105,11 @@ export default function CartDrawer() {
 
         {/* ── Footer (Total & Checkout) ── */}
         {cart.length > 0 && (
-          <div className="border-t border-gray-200 p-4 md:p-6 bg-gray-50 space-y-4">
+          <div className="border-t border-gray-200 p-4 md:p-4 bg-gray-50 space-y-4">
             {/* Subtotal */}
-            <div className="flex items-center justify-between text-lg font-semibold">
+            <div className="flex items-center justify-between text-sm font-semibold">
               <span className="text-gray-700">Subtotal:</span>
-              <span className="text-2xl text-orange-600">${cartTotal.toFixed(2)}</span>
+              <span className="text-xl text-orange-600">${cartTotal.toFixed(2)}</span>
             </div>
 
             {/* Shipping Note */}
@@ -122,13 +122,13 @@ export default function CartDrawer() {
               <Link 
                 to="/checkout"
                 onClick={closeCart}
-                className="block w-full bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-3.5 md:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] text-center"
+                className="block w-full bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold py-1.5 md:py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] text-center"
               >
                 Proceed to Checkout
               </Link>
               <button
                 onClick={closeCart}
-                className="w-full border-2 border-gray-300 text-gray-700 font-semibold py-3 md:py-3.5 rounded-full hover:bg-gray-100 transition-colors"
+                className="w-full border-2 border-gray-300 text-gray-700 font-semibold py-1.5 md:py-2 rounded-full hover:bg-gray-100 transition-colors"
               >
                 Continue Shopping
               </button>

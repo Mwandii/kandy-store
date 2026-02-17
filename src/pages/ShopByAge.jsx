@@ -79,7 +79,7 @@ function ShopByAgePage() {
   // ── Skeleton ────────────────────────────────────────────────────────────────
   if (loading) {
     return (
-      <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
+      <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-10  pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-5">
           <div className="animate-pulse mb-10">
             <div className="h-4 w-32 bg-gray-200 rounded mb-4" />
@@ -106,7 +106,7 @@ function ShopByAgePage() {
   if (!ageGroup) return null;
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-32 md:pt-36 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-6 md:pt-18 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-5">
 
         {/* ── Breadcrumb ── */}
