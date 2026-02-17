@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FaArrowRight, FaFire } from "react-icons/fa";
 import ProductCard from "./TrendingCard";
 import { trendingProductsMock } from "../data/data";
+import { Link } from "react-router-dom";
 
 // Simulate API fetch with delay
 const fetchTrendingProducts = () => {
@@ -104,10 +105,12 @@ function TrendingProducts() {
 
           {/* View All CTA */}
           <div className="flex justify-center pt-8 md:pt-10">
+            <Link to="/categories">
             <button className="group flex items-center gap-2 md:gap-3 px-5 md:px-6 py-3 md:py-4 shadow-lg hover:shadow-xl font-semibold text-white bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-full transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 text-sm md:text-base">
               View all products
               <FaArrowRight className="text-xs md:text-sm group-hover:translate-x-1 transition-transform duration-200" />
             </button>
+            </Link>
           </div>
         </>
       )}

@@ -1,5 +1,6 @@
-import { FaHeart, FaRegHeart, FaStar, FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaStar, FaShoppingCart, FaCheck } from "react-icons/fa";
 import { useState } from "react";
+import { useCartStore } from "../store/cartStore";
 
 /* ── Star renderer ─────────────────────────────────────────────────────────── */
 function Stars({ rating, reviewCount }) {
@@ -31,6 +32,10 @@ function Stars({ rating, reviewCount }) {
 /* ── ProductCard ────────────────────────────────────────────────────────────── */
 export default function ProductCard({ product }) {
   const [isWishlisted, setIsWishlisted] = useState(false);
+  const [justAdded, setJustAdded] = useState(false);
+
+  // Zustand cart action
+  const addToCart = useCartStore((state) => state.addToCart);
 
   const {
     image,
@@ -43,9 +48,15 @@ export default function ProductCard({ product }) {
     badges = [],
   } = product;
 
+  const handleAddToCart = () => {
+    addToCart(product);
+    setJustAdded(true);
+    setTimeout(() => setJustAdded(false), 2000);
+  };
+
   return (
     <div className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col group">
-      
+
       {/* ── Image Container ── */}
       <div className="relative aspect-square overflow-hidden bg-gray-100">
         <img
@@ -82,7 +93,7 @@ export default function ProductCard({ product }) {
 
       {/* ── Card Body ── */}
       <div className="p-3 md:p-4 flex flex-col flex-1">
-        
+
         {/* Brand */}
         <p className="text-[10px] md:text-xs text-gray-500 mb-1 truncate">{brand}</p>
 
@@ -105,11 +116,27 @@ export default function ProductCard({ product }) {
         </div>
 
         {/* Add to Cart button */}
-        <button className="mt-auto w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 md:py-3 rounded-lg md:rounded-xl flex items-center justify-center gap-1.5 md:gap-2 transition-all duration-200 text-xs md:text-sm group/btn">
-          <FaShoppingCart className="text-xs md:text-sm group-hover/btn:scale-110 transition-transform duration-200" />
-          Add to Cart
+        <button
+          onClick={handleAddToCart}
+          disabled={justAdded}
+          className={`mt-auto w-full py-2 md:py-3 rounded-lg md:rounded-xl flex items-center justify-center gap-1.5 md:gap-2 transition-all duration-200 text-xs md:text-sm font-bold ${
+            justAdded
+              ? "bg-green-500 text-white scale-95"
+              : "bg-orange-500 hover:bg-orange-600 text-white"
+          }`}
+        >
+          {justAdded ? (
+            <>
+              <FaCheck className="text-xs md:text-sm" />
+              Added!
+            </>
+          ) : (
+            <>
+              <FaShoppingCart className="text-xs md:text-sm" />
+              Add to Cart
+            </>
+          )}
         </button>
-
       </div>
     </div>
   );

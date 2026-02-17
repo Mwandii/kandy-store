@@ -110,42 +110,86 @@ export const trendingProductsMock = [
   }
 ];
 
-// Mock data for shop by age group
+// ─────────────────────────────────────────────────────────────────────────────
+// AGE GROUPS MOCK DATA
+// Backend: replace with GET /api/age-groups
+// Slugs must match ageGroups[] values in categoriesData.js products
+// ─────────────────────────────────────────────────────────────────────────────
+
 export const ageGroupsMock = [
   {
     id: 1,
+    slug: "0-6months",
     ageRange: "0–6 Months",
     subtitle: "Newborn essentials",
-    itemCount: "1,200+ items",
+    itemCount: "120+ items",
     gradient: "linear-gradient(135deg, #ec4899 0%, #db2777 100%)",
     image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&h=600&fit=crop",
+    icon: "👶",
+    description: "Everything your newborn needs in their first 6 months"
   },
   {
     id: 2,
+    slug: "6-12months",
     ageRange: "6–12 Months",
     subtitle: "Growing baby needs",
-    itemCount: "980+ items",
+    itemCount: "98+ items",
     gradient: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)",
     image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&h=600&fit=crop",
+    icon: "🍼",
+    description: "Products to support your baby's development and exploration"
   },
   {
     id: 3,
+    slug: "1-2years",
     ageRange: "1–2 Years",
     subtitle: "Toddler favorites",
-    itemCount: "1,450+ items",
+    itemCount: "145+ items",
     gradient: "linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)",
     image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=600&fit=crop",
+    icon: "🧸",
+    description: "Toys and essentials for your curious first-year toddler"
   },
   {
     id: 4,
-    ageRange: "2+ Years",
-    subtitle: "Active kids items",
-    itemCount: "2,100+ items",
+    slug: "2-3years",
+    ageRange: "2–3 Years",
+    subtitle: "Active toddler items",
+    itemCount: "110+ items",
     gradient: "linear-gradient(135deg, #f59e0b 0%, #f97316 100%)",
+    image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600&h=600&fit=crop",
+    icon: "🎨",
+    description: "Fun and educational products for active toddlers"
+  },
+  {
+    id: 5,
+    slug: "3-5years",
+    ageRange: "3–5 Years",
+    subtitle: "Preschool essentials",
+    itemCount: "130+ items",
+    gradient: "linear-gradient(135deg, #10b981 0%, #06b6d4 100%)",
     image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=600&h=600&fit=crop",
+    icon: "📚",
+    description: "Learning and play products for preschool-age children"
+  },
+  {
+    id: 6,
+    slug: "5years+",
+    ageRange: "5+ Years",
+    subtitle: "Big kids collection",
+    itemCount: "90+ items",
+    gradient: "linear-gradient(135deg, #ef4444 0%, #f97316 100%)",
+    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=600&fit=crop",
+    icon: "🚀",
+    description: "Exciting products for school-age kids ready to explore"
   },
 ];
-// Mock data for categories and their products
+// ─────────────────────────────────────────────────────────────────────────────
+// CATEGORIES MOCK DATA
+// When integrating backend, replace categoriesMock with GET /api/categories
+// and productsByCategoryMock with GET /api/products?categoryId=:id
+// ─────────────────────────────────────────────────────────────────────────────
+
 export const categoriesMock = [
   {
     id: 1,
@@ -229,7 +273,13 @@ export const categoriesMock = [
   }
 ];
 
-// Mock products by category
+// ─────────────────────────────────────────────────────────────────────────────
+// PRODUCTS BY CATEGORY
+// Each product now has ageGroups: [] — an array so a product can appear
+// in multiple age brackets (e.g. a stroller suits 0-6 AND 6-12 months)
+// Backend: GET /api/products?categoryId=:id  OR  GET /api/products?ageGroup=:slug
+// ─────────────────────────────────────────────────────────────────────────────
+
 export const productsByCategoryMock = {
   1: [ // Baby Clothing
     {
@@ -242,7 +292,9 @@ export const productsByCategoryMock = {
       originalPrice: 39.99,
       image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
       badges: [{ text: "Best Seller", color: "red" }],
-      categoryId: 1
+      categoryId: 1,
+      category: "Baby Clothing",
+      ageGroups: ["0-6months", "6-12months"],
     },
     {
       id: 102,
@@ -253,8 +305,10 @@ export const productsByCategoryMock = {
       price: 24.99,
       originalPrice: null,
       image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&h=500&fit=crop",
-      badges: [{ text: "New", color: "red" }],
-      categoryId: 1
+      badges: [{ text: "New", color: "green" }],
+      categoryId: 1,
+      category: "Baby Clothing",
+      ageGroups: ["0-6months"],
     },
     {
       id: 103,
@@ -266,7 +320,9 @@ export const productsByCategoryMock = {
       originalPrice: 59.99,
       image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop",
       badges: [{ text: "SAVE 25%", color: "red" }],
-      categoryId: 1
+      categoryId: 1,
+      category: "Baby Clothing",
+      ageGroups: ["6-12months", "1-2years"],
     },
     {
       id: 104,
@@ -278,9 +334,40 @@ export const productsByCategoryMock = {
       originalPrice: null,
       image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
       badges: [],
-      categoryId: 1
-    }
+      categoryId: 1,
+      category: "Baby Clothing",
+      ageGroups: ["0-6months"],
+    },
+    {
+      id: 105,
+      name: "Toddler Summer Dress Set",
+      brand: "Little Angels",
+      rating: 4.7,
+      reviewCount: 143,
+      price: 34.99,
+      originalPrice: 44.99,
+      image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 22%", color: "red" }],
+      categoryId: 1,
+      category: "Baby Clothing",
+      ageGroups: ["1-2years", "2-3years"],
+    },
+    {
+      id: 106,
+      name: "Kids Pyjama Set",
+      brand: "Sweet Dreams",
+      rating: 4.8,
+      reviewCount: 221,
+      price: 27.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
+      badges: [],
+      categoryId: 1,
+      category: "Baby Clothing",
+      ageGroups: ["3-5years", "5years+"],
+    },
   ],
+
   2: [ // Toys & Games
     {
       id: 201,
@@ -292,7 +379,9 @@ export const productsByCategoryMock = {
       originalPrice: null,
       image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&h=500&fit=crop",
       badges: [{ text: "Popular", color: "red" }],
-      categoryId: 2
+      categoryId: 2,
+      category: "Toys & Games",
+      ageGroups: ["0-6months", "6-12months", "1-2years"],
     },
     {
       id: 202,
@@ -304,7 +393,9 @@ export const productsByCategoryMock = {
       originalPrice: 19.99,
       image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
       badges: [{ text: "SAVE 25%", color: "red" }],
-      categoryId: 2
+      categoryId: 2,
+      category: "Toys & Games",
+      ageGroups: ["6-12months", "1-2years"],
     },
     {
       id: 203,
@@ -315,10 +406,41 @@ export const productsByCategoryMock = {
       price: 34.99,
       originalPrice: null,
       image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&h=500&fit=crop",
-      badges: [{ text: "New", color: "red" }],
-      categoryId: 2
-    }
+      badges: [{ text: "New", color: "green" }],
+      categoryId: 2,
+      category: "Toys & Games",
+      ageGroups: ["6-12months", "1-2years"],
+    },
+    {
+      id: 204,
+      name: "LEGO Duplo Starter Set",
+      brand: "GrowBig Kids",
+      rating: 4.9,
+      reviewCount: 567,
+      price: 49.99,
+      originalPrice: 64.99,
+      image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&h=500&fit=crop",
+      badges: [{ text: "Best Seller", color: "red" }],
+      categoryId: 2,
+      category: "Toys & Games",
+      ageGroups: ["2-3years", "3-5years"],
+    },
+    {
+      id: 205,
+      name: "Kids Puzzle Set 100pcs",
+      brand: "Playful Minds",
+      rating: 4.7,
+      reviewCount: 289,
+      price: 22.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&h=500&fit=crop",
+      badges: [],
+      categoryId: 2,
+      category: "Toys & Games",
+      ageGroups: ["3-5years", "5years+"],
+    },
   ],
+
   3: [ // Feeding Essentials
     {
       id: 301,
@@ -330,7 +452,9 @@ export const productsByCategoryMock = {
       originalPrice: 39.99,
       image: "https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=500&h=500&fit=crop",
       badges: [{ text: "Best Seller", color: "red" }],
-      categoryId: 3
+      categoryId: 3,
+      category: "Feeding Essentials",
+      ageGroups: ["0-6months", "6-12months"],
     },
     {
       id: 302,
@@ -342,9 +466,26 @@ export const productsByCategoryMock = {
       originalPrice: null,
       image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=500&h=500&fit=crop",
       badges: [],
-      categoryId: 3
-    }
+      categoryId: 3,
+      category: "Feeding Essentials",
+      ageGroups: ["6-12months", "1-2years"],
+    },
+    {
+      id: 303,
+      name: "Toddler Sippy Cup Set",
+      brand: "Mama's Choice",
+      rating: 4.7,
+      reviewCount: 341,
+      price: 16.99,
+      originalPrice: 21.99,
+      image: "https://images.unsplash.com/photo-1612810806695-30f7a8258391?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 23%", color: "red" }],
+      categoryId: 3,
+      category: "Feeding Essentials",
+      ageGroups: ["1-2years", "2-3years"],
+    },
   ],
+
   4: [ // Nursery Furniture
     {
       id: 401,
@@ -356,7 +497,9 @@ export const productsByCategoryMock = {
       originalPrice: 399.99,
       image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&h=500&fit=crop",
       badges: [{ text: "SAVE 25%", color: "red" }],
-      categoryId: 4
+      categoryId: 4,
+      category: "Nursery Furniture",
+      ageGroups: ["0-6months", "6-12months", "1-2years"],
     },
     {
       id: 402,
@@ -367,10 +510,27 @@ export const productsByCategoryMock = {
       price: 179.99,
       originalPrice: null,
       image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&h=500&fit=crop",
-      badges: [{ text: "New", color: "red" }],
-      categoryId: 4
-    }
+      badges: [{ text: "New", color: "green" }],
+      categoryId: 4,
+      category: "Nursery Furniture",
+      ageGroups: ["0-6months", "6-12months"],
+    },
+    {
+      id: 403,
+      name: "Toddler Bed with Rails",
+      brand: "Sweet Dreams",
+      rating: 4.8,
+      reviewCount: 203,
+      price: 249.99,
+      originalPrice: 319.99,
+      image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 22%", color: "red" }],
+      categoryId: 4,
+      category: "Nursery Furniture",
+      ageGroups: ["1-2years", "2-3years", "3-5years"],
+    },
   ],
+
   5: [ // Bath & Skincare
     {
       id: 501,
@@ -382,7 +542,9 @@ export const productsByCategoryMock = {
       originalPrice: 25.99,
       image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500&h=500&fit=crop",
       badges: [{ text: "Popular", color: "red" }],
-      categoryId: 5
+      categoryId: 5,
+      category: "Bath & Skincare",
+      ageGroups: ["0-6months", "6-12months"],
     },
     {
       id: 502,
@@ -394,23 +556,71 @@ export const productsByCategoryMock = {
       originalPrice: null,
       image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500&h=500&fit=crop",
       badges: [{ text: "Best Seller", color: "red" }],
-      categoryId: 5
-    }
+      categoryId: 5,
+      category: "Bath & Skincare",
+      ageGroups: ["0-6months", "6-12months", "1-2years"],
+    },
+    {
+      id: 503,
+      name: "Kids Bubble Bath Set",
+      brand: "Pure & Gentle",
+      rating: 4.6,
+      reviewCount: 198,
+      price: 18.99,
+      originalPrice: 24.99,
+      image: "https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 24%", color: "red" }],
+      categoryId: 5,
+      category: "Bath & Skincare",
+      ageGroups: ["2-3years", "3-5years", "5years+"],
+    },
   ],
+
   6: [ // Diapers & Wipes
     {
       id: 601,
-      name: "Premium Diapers Size 3",
+      name: "Premium Diapers Newborn",
       brand: "Baby Bliss",
       rating: 4.7,
       reviewCount: 678,
+      price: 29.99,
+      originalPrice: 39.99,
+      image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 25%", color: "red" }],
+      categoryId: 6,
+      category: "Diapers & Wipes",
+      ageGroups: ["0-6months"],
+    },
+    {
+      id: 602,
+      name: "Premium Diapers Size 3",
+      brand: "Baby Bliss",
+      rating: 4.7,
+      reviewCount: 512,
       price: 39.99,
       originalPrice: 49.99,
       image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&h=500&fit=crop",
       badges: [{ text: "SAVE 20%", color: "red" }],
-      categoryId: 6
-    }
+      categoryId: 6,
+      category: "Diapers & Wipes",
+      ageGroups: ["6-12months", "1-2years"],
+    },
+    {
+      id: 603,
+      name: "Eco Bamboo Baby Wipes",
+      brand: "Pure & Gentle",
+      rating: 4.9,
+      reviewCount: 834,
+      price: 12.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=500&h=500&fit=crop",
+      badges: [{ text: "Best Seller", color: "red" }],
+      categoryId: 6,
+      category: "Diapers & Wipes",
+      ageGroups: ["0-6months", "6-12months", "1-2years", "2-3years"],
+    },
   ],
+
   7: [ // Strollers & Carriers
     {
       id: 701,
@@ -422,9 +632,40 @@ export const productsByCategoryMock = {
       originalPrice: 249.99,
       image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop",
       badges: [{ text: "Best Seller", color: "red" }],
-      categoryId: 7
-    }
+      categoryId: 7,
+      category: "Strollers & Carriers",
+      ageGroups: ["0-6months", "6-12months", "1-2years", "2-3years"],
+    },
+    {
+      id: 702,
+      name: "Ergonomic Baby Carrier",
+      brand: "Adventure Baby",
+      rating: 4.9,
+      reviewCount: 421,
+      price: 89.99,
+      originalPrice: 119.99,
+      image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 25%", color: "red" }],
+      categoryId: 7,
+      category: "Strollers & Carriers",
+      ageGroups: ["0-6months", "6-12months"],
+    },
+    {
+      id: 703,
+      name: "Jogging Stroller Pro",
+      brand: "Adventure Baby",
+      rating: 4.7,
+      reviewCount: 267,
+      price: 299.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&h=500&fit=crop",
+      badges: [{ text: "New", color: "green" }],
+      categoryId: 7,
+      category: "Strollers & Carriers",
+      ageGroups: ["6-12months", "1-2years", "2-3years", "3-5years"],
+    },
   ],
+
   8: [ // Baby Safety
     {
       id: 801,
@@ -435,11 +676,49 @@ export const productsByCategoryMock = {
       price: 129.99,
       originalPrice: null,
       image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=500&h=500&fit=crop",
-      badges: [{ text: "New", color: "red" }],
-      categoryId: 8
-    }
-  ]
+      badges: [{ text: "New", color: "green" }],
+      categoryId: 8,
+      category: "Baby Safety",
+      ageGroups: ["0-6months", "6-12months"],
+    },
+    {
+      id: 802,
+      name: "Baby Safety Gate",
+      brand: "Safe Haven Baby",
+      rating: 4.8,
+      reviewCount: 356,
+      price: 59.99,
+      originalPrice: 79.99,
+      image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=500&h=500&fit=crop",
+      badges: [{ text: "SAVE 25%", color: "red" }],
+      categoryId: 8,
+      category: "Baby Safety",
+      ageGroups: ["6-12months", "1-2years", "2-3years"],
+    },
+    {
+      id: 803,
+      name: "Corner & Edge Guards Set",
+      brand: "Safe Haven Baby",
+      rating: 4.6,
+      reviewCount: 512,
+      price: 14.99,
+      originalPrice: null,
+      image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=500&h=500&fit=crop",
+      badges: [{ text: "Popular", color: "red" }],
+      categoryId: 8,
+      category: "Baby Safety",
+      ageGroups: ["6-12months", "1-2years", "2-3years", "3-5years"],
+    },
+  ],
 };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// FLAT PRODUCTS LIST — all products in one array for age-group filtering
+// Backend: replace with GET /api/products?ageGroup=:slug
+// ─────────────────────────────────────────────────────────────────────────────
+export const allProductsMock = Object.values(productsByCategoryMock).flat();
+
+
 
 // Unified vendor data - used by both FeaturedVendors and AllVendorsPage
 export const vendorsMock = [

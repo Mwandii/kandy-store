@@ -59,7 +59,7 @@ function FeaturedVendors() {
 
         {/* Right: View All button (desktop) */}
         <Link to="/vendors">
-        <button className="hidden md:flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold text-sm transition-all duration-200 group whitespace-nowrap">
+        <button className="hidden md:flex items-center gap-2 text-orange-500 hover:cursor-pointer hover:text-orange-600 font-semibold text-sm transition-all duration-200 group whitespace-nowrap">
           View All Vendors
           <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-200" />
         </button>

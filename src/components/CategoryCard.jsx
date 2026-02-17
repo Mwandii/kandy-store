@@ -17,7 +17,7 @@ export default function CategoryCard({ category }) {
       {/* Image with gradient overlay */}
       <div className="relative h-40 md:h-48 overflow-hidden">
         {/* Gradient background */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-90`} />
+        <div className={`absolute inset-0 bg-linear-to-br ${color} opacity-90`} />
 
         {/* Background image */}
         <div

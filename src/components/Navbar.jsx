@@ -106,7 +106,7 @@ function Navbar() {
           {/* Cart Button with Badge */}
           <button 
             onClick={toggleCart}
-            className="relative flex items-center gap-2 text-gray-700 hover:text-orange-600 font-semibold transition-colors px-3 py-2 rounded-lg hover:bg-orange-50"
+            className="relative flex items-center gap-2 text-gray-700 hover:text-orange-600 font-semibold transition-colors px-3 py-2 rounded-lg hover:bg-orange-50 hover:cursor-pointer"
           >
             <FaShoppingCart className="text-lg" />
             <span className="hidden lg:inline">Cart</span>
@@ -119,7 +119,7 @@ function Navbar() {
             )}
           </button>
 
-          <button className="flex items-center gap-2 bg-linear-to-r from-amber-600 to-orange-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all">
+          <button className="flex items-center gap-2 bg-linear-to-r from-amber-600 to-orange-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg hover:scale-105 hover:cursor-pointer transition-all">
             <FaUser className="text-sm" />
             <span>Login</span>
           </button>

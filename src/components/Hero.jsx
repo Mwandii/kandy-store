@@ -1,5 +1,6 @@
 import { FaCheck, FaShoppingBag, FaStar } from "react-icons/fa";
 import { FaShop } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
@@ -41,12 +42,16 @@ function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 md:gap-5 pt-2 md:py-6 font-semibold">
-            <button className="px-6 py-3.5 md:px-8 md:py-4 shadow-lg hover:shadow-xl text-white bg-linear-to-r from-orange-500 to-orange-600 rounded-full transition-all duration-300 hover:scale-105 hover:-translate-y-0.5">
+            <Link to="/categories">
+            <button className="px-6 py-3.5 md:px-8 md:py-4 shadow-lg hover:shadow-xl text-white bg-linear-to-r from-orange-500 to-orange-600 rounded-full transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 hover:cursor-pointer">
               Shop Now
             </button>
-            <button className="px-6 py-3.5 md:px-8 md:py-4 shadow-md hover:shadow-lg border-2 border-orange-600 text-orange-700 hover:text-orange-800 rounded-full transition-all duration-300 hover:scale-105 hover:bg-orange-50">
+            </Link>
+            <Link to="/vendors">
+            <button className="px-6 py-3.5 md:px-8 md:py-4 shadow-md hover:shadow-lg border-2 border-orange-600 text-orange-700 hover:text-orange-800 rounded-full transition-all duration-300 hover:scale-105 hover:bg-orange-50 hover:cursor-pointer">
               Browse Vendors
             </button>
+            </Link>
           </div>
 
           {/* Divider */}
