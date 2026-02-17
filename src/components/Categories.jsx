@@ -134,7 +134,7 @@ function CategoriesSection() {
             onClick={scrollLeft}
             disabled={activeIndex === 0}
             aria-label="Previous"
-            className="hidden sm:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full border-2 border-orange-500 items-center justify-center bg-white shadow-lg text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white disabled:hover:text-orange-500"
+            className="hidden sm:flex absolute -left-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full border-2 border-orange-500 items-center justify-center bg-white shadow-lg text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white disabled:hover:text-orange-500"
           >
             <FaChevronLeft className="text-sm md:text-base" />
           </button>
@@ -146,7 +146,7 @@ function CategoriesSection() {
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
-            className="flex gap-4 py-5 px-1 overflow-x-auto scroll-smooth scrollbar-hide"
+            className="flex gap-1 py-5 overflow-x-auto scroll-smooth scrollbar-hide"
             style={{ WebkitOverflowScrolling: "touch", scrollSnapType: "x mandatory" }}
           >
             {categories.map((cat) => (
@@ -171,7 +171,7 @@ function CategoriesSection() {
             onClick={scrollRight}
             disabled={activeIndex >= categories.length - 1}
             aria-label="Next"
-            className="hidden sm:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full border-2 border-orange-500 items-center justify-center bg-white shadow-lg text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white disabled:hover:text-orange-500"
+            className="hidden sm:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 w-11 h-11 md:w-12 md:h-12 rounded-full border-2 border-orange-500 items-center justify-center bg-white shadow-lg text-orange-500 hover:bg-orange-500 hover:text-white transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white disabled:hover:text-orange-500"
           >
             <FaChevronRight className="text-sm md:text-base" />
           </button>

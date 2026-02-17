@@ -17,15 +17,15 @@ function OrderSuccessPage() {
   if (!orderNumber) return null;
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-green-50/30 to-white pt-32 md:pt-18 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-green-50/30 to-white pt-4 md:pt-18 pb-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-5">
         
         {/* Success Animation */}
         <div className="text-center mb-8">
-          <div className="w-24 h-24 md:w-32 md:h-32 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce-in shadow-lg">
-            <FaCheckCircle className="text-5xl md:text-6xl text-white" />
+          <div className="w-16 h-16 md:w-22 md:h-22 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce-in shadow-lg">
+            <FaCheckCircle className="text-4xl md:text-5xl text-white" />
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
             Order Confirmed!
           </h1>
           <p className="text-gray-600 text-sm md:text-base">

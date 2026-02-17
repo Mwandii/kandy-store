@@ -28,7 +28,7 @@ function AllCategoriesPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-16 md:pt-18">
+    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-8 md:pt-18">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-5 mb-8 md:mb-12">
         {/* Breadcrumb */}

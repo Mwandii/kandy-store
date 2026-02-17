@@ -86,7 +86,7 @@ function NewArrivalsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-red-50/30 to-white pt-32 md:pt-18 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-red-50/30 to-white pt-4 md:pt-18 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-5">
         
         {/* Header */}
@@ -237,7 +237,7 @@ function NewArrivalsPage() {
               >
                 <div className="relative">
                   {/* Days ago badge */}
-                  <div className="absolute -top-2 left-2 z-10 bg-red-500 text-white text-[10px] md:text-xs font-bold px-2 py-1 rounded-full shadow-md flex items-center gap-1">
+                  <div className="absolute -top-2 right-2 z-10 bg-red-500 text-white text-[10px] md:text-xs font-bold px-2 py-1 rounded-full shadow-md flex items-center gap-1">
                     <FaClock className="text-[8px] md:text-[10px]" />
                     {getDaysAgo(product.dateAdded)}
                   </div>

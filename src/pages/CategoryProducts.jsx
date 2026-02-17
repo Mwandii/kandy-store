@@ -72,7 +72,7 @@ function CategoryProductsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white pt-20 md:pt-18">
+    <div className="min-h-screen bg-white  md:pt-12">
       {/* Header */}
       <div className="bg-linear-to-b from-orange-50/50 to-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-5 py-6 md:py-10">

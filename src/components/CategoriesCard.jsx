@@ -10,7 +10,7 @@ function CategoriesCard({ name, itemCount, image, slug }) {
   return (
     <div
       onClick={handleClick}
-      className="group relative flex flex-col w-full aspect-3/4 rounded-2xl bg-white shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+      className="group relative flex flex-col w-full max-w-65 md:max-w-50 mx-auto aspect-3/4 rounded-2xl bg-white shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer"
     >
       
       {/* Image section with gradient overlay */}

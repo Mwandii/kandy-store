@@ -147,7 +147,7 @@ function CheckoutPage() {
   if (cart.length === 0) return null;
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-32 md:pt-18 pb-16">
+    <div className="min-h-screen bg-linear-to-b from-orange-50/30 to-white pt-4 md:pt-18 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-5">
         
         {/* Header */}
@@ -551,10 +551,10 @@ function DeliveryStep({ formData, setFormData, handleNext, handlePrevious }) {
         </button>
         <button
           onClick={handleNext}
-          className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-colors"
+          className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-1 px-2 rounded-xl flex items-center justify-center gap-2 transition-colors"
         >
           Continue to Payment
-          <FaArrowRight />
+          
         </button>
       </div>
     </div>
